@@ -101,11 +101,69 @@ WOODEN CUTTING BOARD (Center Pizza)               PYTHON DATA STRUCTURES
 
 ---
 
-## 3. Running the Scripts (DOS / `cmd.exe`)
+## 3. `algo02.py`: String Split & Word Counting (Hash Map Counter)
+
+[algo02.py](file:///d:/gitFolders/Demos/algo_runs/algo02.py) visualizes how a program splits a continuous sentence into individual word tokens and counts word frequencies using a Hash Map (`dict`).
+
+```
+1. RAW STRING TAPE (In Memory)
++───+───+───+───+───+───+───+───+───+───+───+───+───+───+───+───+───+───+───+───+───+───+
+|'a'|'p'|'p'|'l'|'e'|' '|'b'|'a'|'n'|'a'|'n'|'a'|' '|'a'|'p'|'p'|'l'|'e'|' '|'o'|'r'...|
++───+───+───+───+───+─▼─+───+───+───+───+───+───+─▼─+───+───+───+───+───+─▼─+───+───+───+
+                     [CUT ' ']                   [CUT ' ']                 [CUT ' ']
+                     (Slicing laser drops down & discards delimiter spaces)
+
+2. TOKEN ARRAY CONVEYOR: tokens = text.split(' ')
++───────────────────+   +───────────────────+   +───────────────────+   +───────────────────+
+| tokens[0]:'apple' |   |tokens[1]:'banana' |   | tokens[2]:'apple' |   |tokens[3]:'orange' |
++─────────┬─────────+   +───────────────────+   +───────────────────+   +───────────────────+
+          │
+          │ (Bezier Flying Token Flight)
+          ▼
+3. HASH MAP / DICTIONARY TALLY: counts = {}
++───────────+──────────+──────────────────────────────────────────────+
+| Key       | Count    | Frequency Bar Gauge                          |
++───────────+──────────+──────────────────────────────────────────────+
+| 'apple'   | [ 3 ]    | ████████████████████████████████  3x (50%)   |
+| 'banana'  | [ 2 ]    | ███████████████████               2x (33%)   |
+| 'orange'  | [ 1 ]    | █████████                         1x (17%)   |
++───────────+──────────+──────────────────────────────────────────────+
+
+4. LIVE PYTHON EXECUTION HUD
+for word in tokens:
+    if word in counts:
+        counts[word] += 1  ◄─── (Pulsing highlight when key exists)
+    else:
+        counts[word] = 1   ◄─── (Bucket creation when key is new)
+```
+
+### Concepts Demonstrated Visually
+1. **String Tokenization (`text.split(' ')`)**:
+   - The raw string is rendered as an indexed tape of contiguous character cells in RAM.
+   - Animated laser cutters drop at each whitespace delimiter (`' '`), separating character chunks and discarding the spaces.
+2. **List Array Conveyor**:
+   - Extracted words assemble into an ordered Python list:
+     `tokens = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple']`.
+3. **Hash Map / Dictionary Lookup & Mutation**:
+   - The loop pointer steps through each token: `for word in tokens:`.
+   - The active token lifts into the air and glides along a cubic Bezier curve down to its destination dictionary key.
+   - If the key is new: creates the bucket and initializes tally to `1`.
+   - If the key exists: triggers a golden flash and increments `counts[word] += 1`, expanding the horizontal frequency bar chart.
+4. **Live Python Code & Variable Inspector**:
+   - Real-time line highlighter tracks Python code execution line-by-line alongside a live variable inspector displaying `word` and `counts`.
+
+---
+
+## 4. Running the Scripts (DOS / `cmd.exe`)
 
 Prerequisites:
 ```cmd
 pip install dearcygui
+```
+
+Run the String Split & Word Counting Visualizer:
+```cmd
+python d:\gitFolders\Demos\algo_runs\algo02.py
 ```
 
 Run the Pizza Slicing & Dictionary Visualizer:
