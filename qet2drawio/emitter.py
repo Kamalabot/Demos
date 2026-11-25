@@ -1,14 +1,14 @@
-"""Multi-page Draw.io emitter for QElectroTech schematics powered by drawpyo."""
+"""Multi-page Draw.io emitter for Approach 3 (Functional Block & Aggregated Bus Architecture)."""
 
 import json
 import os
-from typing import Dict
+from collections import Counter, defaultdict
+from typing import Dict, List
 
 import drawpyo
 from jinja2 import Environment, FileSystemLoader
 
-from .geometry import build_points_style, normalize_bounds, terminal_port_ratio
-from .ir import QETProjectIR
+from .ir import ProjectIR
 
 TEMPLATES_DIR = os.path.join(os.path.dirname(__file__), "templates")
 
@@ -23,20 +23,19 @@ def _load_theme(theme_name: str) -> Dict:
 
 def _sanitize_page_name(title: str, idx: int) -> str:
     cleaned = "".join(ch if ch.isalnum() or ch in (" ", "-", "_") else "_" for ch in title).strip()
-    return cleaned or f"Folio-{idx}"
+    return f"{idx}_{cleaned}" if cleaned else f"Folio-{idx}"
 
 
 def emit_qet_drawio(
-    project_ir: QETProjectIR,
+    project: ProjectIR,
     output_path: str,
-    mode: str = "block",
-    scale: float = 1.25,
-    theme_name: str = "iec",
+    theme_name: str = "qet",
+    show_pins: bool = True,
 ) -> str:
-    """Compile a QETProjectIR into a multi-page .drawio file."""
+    """Compile an analyzed & laid-out ProjectIR into a multi-page .drawio file."""
     theme = _load_theme(theme_name)
     env = Environment(loader=FileSystemLoader(TEMPLATES_DIR), autoescape=True)
-    tpl_module = env.get_template("block_card.j2").module
+    tpl = env.get_template("block_card.j2").module
 
     abs_out = os.path.abspath(output_path)
     out_dir = os.path.dirname(abs_out)
@@ -47,83 +46,122 @@ def emit_qet_drawio(
     dfile.file_path = out_dir
     dfile.file_name = out_file
 
+    # ------------------------------------------------------------------
+    # Page 1: Project Overview
+    # ------------------------------------------------------------------
+    overview_page = drawpyo.Page(file=dfile)
+    overview_page.name = "0_Project_Overview"
+
+    total_elems = sum(len(d.elements) for d in project.diagrams)
+    total_conds = sum(len(d.conductors) for d in project.diagrams)
+    total_buses = sum(len(d.bus_bundles) for d in project.diagrams)
+    total_annots = sum(len(d.annotations) for d in project.diagrams)
+
+    banner = drawpyo.diagram.Object(
+        page=overview_page,
+        value=str(tpl.project_banner(project, total_elems, total_conds, total_buses, total_annots)),
+    )
+    banner.position = (40, 30)
+    banner.width = 760
+    banner.height = 120
+    banner.apply_style_string(theme["overview_banner"])
+
+    # Folio summary cards
+    folio_objs: List[drawpyo.diagram.Object] = []
+    cur_y = 180.0
+    for diag in project.diagrams:
+        cat_counts = dict(Counter(e.category for e in diag.elements))
+        f_card = drawpyo.diagram.Object(
+            page=overview_page,
+            value=str(tpl.folio_summary(diag, cat_counts)),
+        )
+        f_card.position = (40, cur_y)
+        f_card.width = 360
+        f_card.height = 125
+        f_card.apply_style_string(theme["folio_card"])
+        folio_objs.append(f_card)
+        cur_y += 145.0
+
+    # Collection summary card
+    cat_defs: Dict[str, List[str]] = defaultdict(list)
+    for cdef in project.collection.values():
+        cat_defs[cdef.category].append(cdef.name)
+    coll_card = drawpyo.diagram.Object(
+        page=overview_page,
+        value=str(tpl.collection_summary(dict(cat_defs))),
+    )
+    coll_card.position = (440, 180)
+    coll_card.width = 360
+    coll_card.height = max(140.0, 55.0 + len(cat_defs) * 24.0)
+    coll_card.apply_style_string(theme["collection_card"])
+
+    for f_obj in folio_objs:
+        link = drawpyo.diagram.Edge(page=overview_page, source=banner, target=f_obj)
+        link.apply_style_string("edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#64748B;endArrow=classic;")
+
+    # ------------------------------------------------------------------
+    # Pages 2..N: Per-Diagram Functional Block & Aggregated Bus Views
+    # ------------------------------------------------------------------
     categories = theme["categories"]
 
-    for f_idx, folio in enumerate(project_ir.folios, start=1):
+    for diag in project.diagrams:
         page = drawpyo.Page(file=dfile)
-        page.name = _sanitize_page_name(folio.title, f_idx)
+        page.name = _sanitize_page_name(diag.title, diag.order)
+
+        # Header bar
+        max_x = max((e.layout_x + e.layout_w for e in diag.elements), default=600.0)
+        hdr = drawpyo.diagram.Object(page=page, value=str(tpl.diagram_header(diag)))
+        hdr.position = (40, 30)
+        hdr.width = max(720.0, max_x - 40.0)
+        hdr.height = 56
+        hdr.apply_style_string(theme["page_header"])
 
         obj_map: Dict[str, drawpyo.diagram.Object] = {}
-        inst_map = {el.uuid: el for el in folio.elements}
-
-        # 1. Instantiate Elements
-        for inst in folio.elements:
-            def_ir = project_ir.definitions.get(inst.def_path)
-            if inst.is_text_only:
-                lbl_obj = drawpyo.diagram.Object(page=page, value=inst.label)
-                lbl_obj.position = (inst.x * scale, inst.y * scale)
-                lbl_obj.width = max(60.0, len(inst.label) * 7.0)
-                lbl_obj.height = 28.0
-                lbl_obj.apply_style_string(theme["annotation"])
-                obj_map[inst.uuid] = lbl_obj
-                continue
-
-            x, y, w, h = normalize_bounds(inst, def_ir, scale=scale)
-            # Ensure block labels remain legible on compact QET symbols
-            w = max(w, 46.0 if mode == "stencil" else 68.0)
-            h = max(h, 30.0 if mode == "stencil" else 42.0)
-
-            cat_key = def_ir.category.lower() if def_ir else "default"
-            cat_style = categories.get(cat_key, categories["default"])
-            pts_style = build_points_style(inst, def_ir)
-
+        for el in diag.elements:
+            cat_style = categories.get(el.category.lower(), categories["default"])
             style_str = (
-                f"rounded=1;whiteSpace=wrap;html=1;"
+                f"rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;"
                 f"fillColor={cat_style['fillColor']};"
                 f"strokeColor={cat_style['strokeColor']};"
                 f"fontColor={cat_style['fontColor']};"
-                f"strokeWidth=1.4;{pts_style}"
+                f"strokeWidth=1.6;"
             )
+            card_html = str(tpl.element_card(el, cat_style["badgeBg"], show_pins))
+            blk = drawpyo.diagram.Object(page=page, value=card_html)
+            blk.position = (el.layout_x, el.layout_y)
+            blk.width = el.layout_w
+            blk.height = el.layout_h
+            blk.apply_style_string(style_str)
+            obj_map[el.uuid] = blk
 
-            html_val = tpl_module.block_label(inst, def_ir, mode)
-            block_obj = drawpyo.diagram.Object(page=page, value=str(html_val))
-            block_obj.position = (x, y)
-            block_obj.width = w
-            block_obj.height = h
-            block_obj.apply_style_string(style_str)
-            obj_map[inst.uuid] = block_obj
-
-        # 2. Instantiate Conductors (Wires)
-        for cond in folio.conductors:
-            src_obj = obj_map.get(cond.src_elem_uuid)
-            dst_obj = obj_map.get(cond.dst_elem_uuid)
+        # Aggregated Bus Edges
+        for bus in diag.bus_bundles:
+            src_obj = obj_map.get(bus.src_elem_uuid)
+            dst_obj = obj_map.get(bus.dst_elem_uuid)
             if src_obj is None or dst_obj is None:
                 continue
 
-            src_inst = inst_map[cond.src_elem_uuid]
-            dst_inst = inst_map[cond.dst_elem_uuid]
-            src_def = project_ir.definitions.get(src_inst.def_path)
-            dst_def = project_ir.definitions.get(dst_inst.def_path)
+            stroke_w = min(4.5, 1.4 + 0.35 * (len(bus.wires) - 1))
+            edge = drawpyo.diagram.Edge(page=page, source=src_obj, target=dst_obj, label=bus.bundle_label)
+            edge.apply_style_string(
+                f"edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;"
+                f"strokeColor={bus.primary_color};strokeWidth={stroke_w:.1f};"
+                f"endArrow=none;startArrow=none;fontSize=10;"
+                f"labelBackgroundColor=#FFFFFF;fontColor=#0F172A;"
+            )
 
-            src_term = next((t for t in src_inst.terminals if t.term_id == cond.src_term_id), None)
-            dst_term = next((t for t in dst_inst.terminals if t.term_id == cond.dst_term_id), None)
-
-            port_style = ""
-            if src_term is not None:
-                sx, sy = terminal_port_ratio(src_term, src_inst, src_def)
-                port_style += f"exitX={sx};exitY={sy};exitDx=0;exitDy=0;"
-            if dst_term is not None:
-                dx, dy = terminal_port_ratio(dst_term, dst_inst, dst_def)
-                port_style += f"entryX={dx};entryY={dy};entryDx=0;entryDy=0;"
-
-            edge_label = cond.text
-            if cond.section:
-                edge_label = f"{cond.text} ({cond.section})" if cond.text else cond.section
-
-            edge_obj = drawpyo.diagram.Edge(page=page, source=src_obj, target=dst_obj, label=edge_label)
-            edge_obj.apply_style_string(f"{theme['edge_default']}strokeColor={cond.color};{port_style}")
-            if cond.waypoints:
-                edge_obj.waypoints = [(wx * scale, wy * scale) for wx, wy in cond.waypoints]
+        # Annotations Panel (if any 0-pin elements exist)
+        if diag.annotations:
+            annot_x = max_x + 60.0
+            annot_h = min(520.0, 65.0 + min(len(diag.annotations), 15) * 20.0)
+            annot_box = drawpyo.diagram.Object(
+                page=page,
+                value=str(tpl.annotations_panel(diag.annotations)),
+            )
+            annot_box.position = (annot_x, 140)
+            annot_box.width = 270
+            annot_box.height = annot_h
+            annot_box.apply_style_string(theme["annotations_box"])
 
     dfile.write()
     return abs_out

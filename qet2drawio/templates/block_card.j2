@@ -1,8 +1,85 @@
-{# Jinja2 HTML label templates for QElectroTech Draw.io blocks #}
-{% macro block_label(inst, def_ir, mode) -%}
-{% if mode == 'stencil' -%}
-<b>{{ inst.label }}</b>
-{%- else -%}
-<b>{{ inst.label }}</b><br><span style="font-size:8.5px;color:#475569;">{{ def_ir.name if def_ir else inst.def_path.split('/')[-1] }}</span>{% if inst.terminals %}<br><span style="font-size:8px;color:#64748B;">Pins: {{ inst.terminals | length }}</span>{% endif %}
-{%- endif %}
-{%- endmacro %}
+{% macro project_banner(project, total_elems, total_conds, total_buses, total_annots) %}
+<div style="font-family:Segoe UI, Arial, sans-serif; font-size:12px;">
+  <div style="font-size:16px; font-weight:700; color:#93C5FD;">{{ project.title }}</div>
+  <div style="font-size:11px; color:#CBD5E1; margin-top:2px;">QElectroTech v{{ project.version or "?" }} &bull; File-Centric Block Architecture (Approach 3)</div>
+  <hr style="border:0; border-top:1px solid #334155; margin:6px 0;"/>
+  <table style="width:100%; font-size:11px; color:#E2E8F0; border-collapse:collapse;">
+    <tr>
+      <td><b>Folios (&lt;diagram&gt;):</b> {{ project.diagrams|length }}</td>
+      <td><b>Collection Defs:</b> {{ project.collection|length }}</td>
+      <td><b>Functional Blocks:</b> {{ total_elems }}</td>
+    </tr>
+    <tr>
+      <td><b>Raw Conductors:</b> {{ total_conds }}</td>
+      <td><b>Aggregated Buses:</b> {{ total_buses }}</td>
+      <td><b>0-Pin Annotations:</b> {{ total_annots }}</td>
+    </tr>
+  </table>
+</div>
+{% endmacro %}
+
+{% macro folio_summary(diag, cat_counts) %}
+<div style="font-family:Segoe UI, Arial, sans-serif; font-size:11px;">
+  <div style="font-size:13px; font-weight:700; color:#0F172A;">Folio {{ diag.order }}: {{ diag.title }}</div>
+  <hr style="border:0; border-top:1px solid #CBD5E1; margin:5px 0;"/>
+  <div><b>Functional Elements:</b> {{ diag.elements|length }}</div>
+  <div><b>Annotations (0-pin):</b> {{ diag.annotations|length }}</div>
+  <div><b>Conductors &rarr; Buses:</b> {{ diag.conductors|length }} &rarr; {{ diag.bus_bundles|length }}</div>
+  <div><b>Connected Nets:</b> {{ diag.nets|length }}</div>
+  {% if cat_counts %}
+  <div style="margin-top:5px; color:#475569;"><b>Categories:</b>
+    {% for k, v in cat_counts.items() %}{{ k }} ({{ v }}){% if not loop.last %}, {% endif %}{% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endmacro %}
+
+{% macro collection_summary(cat_defs) %}
+<div style="font-family:Segoe UI, Arial, sans-serif; font-size:11px;">
+  <div style="font-size:13px; font-weight:700; color:#312E81;">&lt;collection&gt; Embedded Definitions</div>
+  <hr style="border:0; border-top:1px solid #C7D2FE; margin:5px 0;"/>
+  {% for cat, names in cat_defs.items() %}
+  <div style="margin-bottom:4px;"><b>{{ cat }}</b> ({{ names|length }}): {{ names[:4]|join(', ') }}{% if names|length > 4 %}, ...{% endif %}</div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro diagram_header(diag) %}
+<div style="font-family:Segoe UI, Arial, sans-serif;">
+  <span style="font-size:14px; font-weight:700; color:#F8FAFC;">Folio {{ diag.order }}: {{ diag.title }}</span>
+  <span style="font-size:11px; color:#93C5FD; margin-left:14px;">
+    {{ diag.elements|length }} Functional Blocks &bull;
+    {{ diag.conductors|length }} Conductors &rarr; {{ diag.bus_bundles|length }} Aggregated Buses &bull;
+    {{ diag.nets|length }} Nets &bull;
+    {{ diag.annotations|length }} Annotations
+  </span>
+</div>
+{% endmacro %}
+
+{% macro element_card(elem, badge_bg, show_pins=true) %}
+<div style="font-family:Segoe UI, Arial, sans-serif; font-size:11px; text-align:left;">
+  <div style="background:{{ badge_bg }}; color:#FFFFFF; padding:2px 6px; border-radius:3px; font-size:10px; font-weight:700; display:inline-block;">{{ elem.category|upper }}</div>
+  <div style="font-size:13px; font-weight:700; margin-top:4px;">{{ elem.label }}</div>
+  <div style="font-size:10px; opacity:0.8;">{{ elem.display_name }}</div>
+  {% if show_pins and elem.terminals %}
+  <hr style="border:0; border-top:1px solid rgba(0,0,0,0.15); margin:4px 0;"/>
+  <div style="font-size:10px;">
+    <b>Pins ({{ elem.terminals|length }}):</b>
+    {% for t in elem.terminals[:6] %}T{{ t.term_id }}{% if not loop.last %}, {% endif %}{% endfor %}{% if elem.terminals|length > 6 %}, +{{ elem.terminals|length - 6 }} more{% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endmacro %}
+
+{% macro annotations_panel(annotations) %}
+<div style="font-family:Segoe UI, Arial, sans-serif; font-size:11px;">
+  <div style="font-size:12px; font-weight:700; color:#92400E;">Folio Annotations (0-Pin Elements)</div>
+  <hr style="border:0; border-top:1px solid #FDE68A; margin:5px 0;"/>
+  {% for a in annotations[:15] %}
+  <div style="margin-bottom:3px;">&bull; {{ a.label }}</div>
+  {% endfor %}
+  {% if annotations|length > 15 %}
+  <div style="color:#92400E; font-style:italic;">... and {{ annotations|length - 15 }} more</div>
+  {% endif %}
+</div>
+{% endmacro %}

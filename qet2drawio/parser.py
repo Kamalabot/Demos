@@ -1,266 +1,274 @@
-"""lxml XPath reader for QElectroTech (.qet, .qetz, .elmt) XML files."""
+"""XML parser for QElectroTech (.qet / .qetz) files using lxml."""
 
 import os
 import zipfile
 from typing import Dict, List, Optional, Tuple
+
 from lxml import etree
 
 from .ir import (
-    ConductorIR,
-    ElementDefIR,
-    ElementInstIR,
-    FolioIR,
-    QETProjectIR,
+    CollectionDefIR,
+    ConductorLinkIR,
+    DiagramIR,
+    ElementObjIR,
+    ProjectIR,
     TerminalIR,
 )
 
 
-def _safe_float(val: Optional[str], default: float = 0.0) -> float:
-    try:
-        return float(val) if val is not None else default
-    except ValueError:
-        return default
-
-
-def _safe_int(val: Optional[str], default: int = 0) -> int:
-    try:
-        return int(float(val)) if val is not None else default
-    except ValueError:
-        return default
-
-
-def _parse_definition(defn_el: etree._Element, embed_path: str, category: str) -> ElementDefIR:
-    width = _safe_float(defn_el.get("width"), 60.0)
-    height = _safe_float(defn_el.get("height"), 60.0)
-    hotspot_x = _safe_float(defn_el.get("hotspot_x"), width * 0.5)
-    hotspot_y = _safe_float(defn_el.get("hotspot_y"), height * 0.5)
-    link_type = defn_el.get("link_type") or defn_el.get("type") or "simple"
-
-    # Prefer English name, fallback to first <name>, fallback to file stem
-    name = ""
-    names = defn_el.findall("./names/name")
-    for n in names:
-        if n.get("lang") == "en" and (n.text or "").strip():
-            name = n.text.strip()
-            break
-    if not name and names:
-        for n in names:
-            if (n.text or "").strip():
-                name = n.text.strip()
-                break
-    if not name:
-        name = os.path.splitext(os.path.basename(embed_path))[0]
-
-    primitives: List[Dict] = []
-    terminals: List[TerminalIR] = []
-    desc = defn_el.find("./description")
-    if desc is not None:
-        for idx, child in enumerate(desc):
-            tag = etree.QName(child).localname
-            if tag == "terminal":
-                terminals.append(
-                    TerminalIR(
-                        term_id=child.get("id") or str(idx),
-                        uuid=child.get("uuid") or "",
-                        rel_x=_safe_float(child.get("x")),
-                        rel_y=_safe_float(child.get("y")),
-                        orientation=child.get("orientation") or "n",
-                    )
-                )
-            elif tag in ("line", "rect", "rectangle", "circle", "ellipse", "arc", "polygon"):
-                prim = {"type": tag}
-                prim.update(child.attrib)
-                primitives.append(prim)
-
-    return ElementDefIR(
-        embed_path=embed_path,
-        name=name,
-        category=category,
-        width=width,
-        height=height,
-        hotspot_x=hotspot_x,
-        hotspot_y=hotspot_y,
-        link_type=link_type,
-        primitives=primitives,
-        terminals=terminals,
-    )
-
-
-def _walk_collection(cat_el: etree._Element, path_parts: List[str], out_defs: Dict[str, ElementDefIR]) -> None:
-    cat_name = cat_el.get("name")
-    next_parts = path_parts + ([cat_name] if cat_name else [])
-    category_tag = next_parts[1] if len(next_parts) > 1 else (next_parts[0] if next_parts else "default")
-
-    for child in cat_el:
-        tag = etree.QName(child).localname
-        if tag == "category":
-            _walk_collection(child, next_parts, out_defs)
-        elif tag == "element":
-            el_name = child.get("name") or "unknown.elmt"
-            defn = child.find("./definition")
-            if defn is not None:
-                embed_path = "embed://" + "/".join(next_parts + [el_name])
-                out_defs[embed_path] = _parse_definition(defn, embed_path, category_tag)
-
-
-def _extract_element_label(el_node: etree._Element, def_path: str) -> str:
-    # 1. elementInformations -> label
-    for info in el_node.findall("./elementInformations/elementInformation"):
-        if info.get("name") == "label" and (info.text or "").strip():
-            return info.text.strip().replace("\n", " ")
-
-    # 2. dynamic_texts -> dynamic_elmt_text -> text
-    for txt_node in el_node.findall("./dynamic_texts/dynamic_elmt_text/text"):
-        if (txt_node.text or "").strip():
-            return txt_node.text.strip().replace("\n", " ")
-
-    # 3. legacy inputs -> input[@text]
-    for inp in el_node.findall("./inputs/input"):
-        txt = (inp.get("text") or "").strip()
-        if txt:
-            return txt
-
-    return os.path.splitext(os.path.basename(def_path))[0]
+def _safe_xml_parser() -> etree.XMLParser:
+    return etree.XMLParser(resolve_entities=False, no_network=True, recover=True)
 
 
 def _load_xml_root(file_path: str) -> etree._Element:
-    parser = etree.XMLParser(resolve_entities=False, no_network=True, recover=True)
-    if file_path.lower().endswith(".qetz"):
+    ext = os.path.splitext(file_path)[1].lower()
+    parser = _safe_xml_parser()
+    if ext == ".qetz":
         with zipfile.ZipFile(file_path, "r") as zf:
             qet_names = [n for n in zf.namelist() if n.lower().endswith(".qet")]
             if not qet_names:
-                raise ValueError(f"No .qet XML file found inside archive: {file_path}")
+                raise ValueError(f"No .qet file found inside archive '{file_path}'")
             with zf.open(qet_names[0]) as fh:
                 return etree.parse(fh, parser).getroot()
-    return etree.parse(file_path, parser).getroot()
+    with open(file_path, "rb") as fh:
+        return etree.parse(fh, parser).getroot()
 
 
-def parse_qet_file(file_path: str) -> QETProjectIR:
-    """Parse a .qet, .qetz, or .elmt XML file into a QETProjectIR."""
+def _pick_localized_name(parent: Optional[etree._Element], fallback: str = "") -> str:
+    if parent is None:
+        return fallback
+    names_el = parent.find("names")
+    if names_el is None:
+        return fallback
+    by_lang: Dict[str, str] = {}
+    for n in names_el.findall("name"):
+        lang = (n.get("lang") or "").lower()
+        txt = (n.text or "").strip()
+        if txt:
+            by_lang[lang] = txt
+    for pref in ("en", "pl", "fr", "de"):
+        if pref in by_lang:
+            return by_lang[pref]
+    return next(iter(by_lang.values()), fallback)
+
+
+def _parse_collection(root: etree._Element) -> Dict[str, CollectionDefIR]:
+    collection: Dict[str, CollectionDefIR] = {}
+    coll_el = root.find("collection")
+    if coll_el is None:
+        return collection
+
+    def _walk_category(cat_el: etree._Element, path_parts: List[str]) -> None:
+        cat_name = cat_el.get("name") or "uncategorized"
+        cur_parts = path_parts + [cat_name]
+        # Leaf category name (skipping generic 'import' if deeper category exists)
+        meaningful_cats = [p for p in cur_parts if p.lower() != "import"]
+        leaf_category = meaningful_cats[-1] if meaningful_cats else cat_name
+
+        for el_node in cat_el.findall("element"):
+            el_name = el_node.get("name") or "unknown.elmt"
+            embed_path = "embed://" + "/".join(cur_parts + [el_name])
+            defn = el_node.find("definition")
+            link_type = defn.get("link_type", "simple") if defn is not None else "simple"
+            display_name = _pick_localized_name(defn, fallback=os.path.splitext(el_name)[0])
+            desc = defn.find("description") if defn is not None else None
+            term_count = len(desc.findall("terminal")) if desc is not None else 0
+            info_el = defn.find("informations") if defn is not None else None
+            infos = (info_el.text or "").strip() if info_el is not None else ""
+
+            collection[embed_path] = CollectionDefIR(
+                embed_path=embed_path,
+                name=display_name,
+                category=leaf_category,
+                link_type=link_type,
+                terminal_count=term_count,
+                informations=infos,
+            )
+
+        for sub_cat in cat_el.findall("category"):
+            _walk_category(sub_cat, cur_parts)
+
+    for top_cat in coll_el.findall("category"):
+        _walk_category(top_cat, [])
+
+    return collection
+
+
+def _extract_element_label(
+    el_node: etree._Element,
+    def_ir: Optional[CollectionDefIR],
+    def_path: str,
+    fallback_idx: int,
+) -> Tuple[str, Dict[str, str]]:
+    props: Dict[str, str] = {}
+    label = ""
+
+    infos_el = el_node.find("elementInformations")
+    if infos_el is not None:
+        for info in infos_el.findall("elementInformation"):
+            k = (info.get("name") or "").strip()
+            v = (info.text or "").strip()
+            if k and v:
+                props[k] = v
+                if k == "label" and not label:
+                    label = v
+
+    dyn_el = el_node.find("dynamic_texts")
+    if dyn_el is not None:
+        for dt in dyn_el.findall("dynamic_elmt_text"):
+            txt_node = dt.find("text")
+            if txt_node is not None and txt_node.text:
+                txt = txt_node.text.strip()
+                if txt and txt != "_":
+                    props.setdefault("dynamic_text", txt)
+                    if not label:
+                        label = txt
+
+    inputs_el = el_node.find("inputs")
+    if inputs_el is not None:
+        for inp in inputs_el.findall("input"):
+            txt = (inp.get("text") or "").strip()
+            if txt and txt != "_":
+                props.setdefault("input_text", txt)
+                if not label:
+                    label = txt
+
+    if not label:
+        if def_ir and def_ir.name:
+            label = def_ir.name
+        else:
+            label = os.path.splitext(os.path.basename(def_path))[0] or f"Elem-{fallback_idx}"
+
+    return label, props
+
+
+def _category_from_def_path(def_path: str, def_ir: Optional[CollectionDefIR]) -> str:
+    if def_ir and def_ir.category:
+        return def_ir.category
+    parts = [p for p in def_path.replace("embed://", "").split("/") if p and p.lower() != "import"]
+    if len(parts) >= 2:
+        return parts[-2]
+    return "default"
+
+
+def parse_qet_file(file_path: str) -> ProjectIR:
+    """Parse a .qet or .qetz file into a file-centric ProjectIR."""
     root = _load_xml_root(file_path)
-    root_tag = etree.QName(root).localname
+    if root is None or root.tag != "project":
+        raise ValueError(f"Expected <project> root tag in '{file_path}', got '{getattr(root, 'tag', None)}'")
 
-    # Standalone .elmt element preview
-    if root_tag == "definition":
-        embed_path = f"embed://{os.path.basename(file_path)}"
-        def_ir = _parse_definition(root, embed_path, "default")
-        inst = ElementInstIR(
-            uuid="{standalone-1}",
-            def_path=embed_path,
-            label=def_ir.name,
-            x=def_ir.hotspot_x + 120.0,
-            y=def_ir.hotspot_y + 120.0,
-            terminals=def_ir.terminals,
-        )
-        folio = FolioIR(title=def_ir.name, order=1, width=600.0, height=400.0, elements=[inst])
-        return QETProjectIR(title=def_ir.name, definitions={embed_path: def_ir}, folios=[folio])
+    title = (root.get("title") or os.path.splitext(os.path.basename(file_path))[0]).strip()
+    version = (root.get("version") or "").strip()
 
-    project_title = root.get("title") or os.path.splitext(os.path.basename(file_path))[0]
-    definitions: Dict[str, ElementDefIR] = {}
+    properties: Dict[str, str] = {}
+    props_el = root.find("properties")
+    if props_el is not None:
+        for p in props_el.findall("property"):
+            k = (p.get("name") or "").strip()
+            v = (p.text or "").strip()
+            if k and v:
+                properties[k] = v
 
-    collection = root.find("./collection")
-    if collection is not None:
-        for cat in collection.findall("./category"):
-            _walk_collection(cat, [], definitions)
+    collection = _parse_collection(root)
+    diagrams: List[DiagramIR] = []
 
-    folios: List[FolioIR] = []
-    for diag_idx, diag in enumerate(root.findall("./diagram"), start=1):
-        folio_title = diag.get("title") or f"Folio-{diag_idx}"
-        order = _safe_int(diag.get("order"), diag_idx)
-        cols = _safe_int(diag.get("cols"), 17)
-        colsize = _safe_float(diag.get("colsize"), 60.0)
-        rows = _safe_int(diag.get("rows"), 8)
-        rowsize = _safe_float(diag.get("rowsize"), 80.0)
-        width = cols * colsize
-        height = _safe_float(diag.get("height"), rows * rowsize)
+    for idx, diag_el in enumerate(root.findall("diagram"), start=1):
+        order = int(diag_el.get("order") or idx)
+        diag_title = (diag_el.get("title") or f"Folio {order}").strip()
 
-        elements: List[ElementInstIR] = []
-        term_to_elem: Dict[str, Tuple[str, str]] = {}
+        elements: List[ElementObjIR] = []
+        annotations: List[ElementObjIR] = []
+        term_to_elem: Dict[str, str] = {}
 
-        for el_idx, el_node in enumerate(diag.findall("./elements/element")):
-            el_uuid = el_node.get("uuid") or f"elem_{diag_idx}_{el_idx}"
-            def_path = el_node.get("type") or ""
-            x = _safe_float(el_node.get("x"))
-            y = _safe_float(el_node.get("y"))
-            ori = _safe_int(el_node.get("orientation"), 0) % 4
-            label = _extract_element_label(el_node, def_path)
+        elems_el = diag_el.find("elements")
+        if elems_el is not None:
+            for e_idx, el_node in enumerate(elems_el.findall("element"), start=1):
+                uuid = (el_node.get("uuid") or f"elem-{idx}-{e_idx}").strip()
+                def_path = (el_node.get("type") or "").strip()
+                def_ir = collection.get(def_path)
+                category = _category_from_def_path(def_path, def_ir)
+                display_name = def_ir.name if def_ir else os.path.splitext(os.path.basename(def_path))[0]
 
-            inst_terms: List[TerminalIR] = []
-            for t_idx, t_node in enumerate(el_node.findall("./terminals/terminal")):
-                t_id = t_node.get("id") or f"{el_uuid}_t{t_idx}"
-                t_ir = TerminalIR(
-                    term_id=t_id,
-                    uuid=t_node.get("uuid") or "",
-                    rel_x=_safe_float(t_node.get("x")),
-                    rel_y=_safe_float(t_node.get("y")),
-                    orientation=t_node.get("orientation") or "0",
-                    label=t_node.get("number") or t_node.get("name") or "",
-                )
-                inst_terms.append(t_ir)
-                term_to_elem[t_id] = (el_uuid, t_id)
+                terminals: List[TerminalIR] = []
+                terms_el = el_node.find("terminals")
+                if terms_el is not None:
+                    for t_node in terms_el.findall("terminal"):
+                        tid = (t_node.get("id") or "").strip()
+                        if not tid:
+                            continue
+                        t_ir = TerminalIR(
+                            term_id=tid,
+                            uuid=(t_node.get("uuid") or "").strip(),
+                            name=(t_node.get("name") or "").strip(),
+                            orientation=(t_node.get("orientation") or "").strip(),
+                            rel_x=float(t_node.get("x") or 0.0),
+                            rel_y=float(t_node.get("y") or 0.0),
+                        )
+                        terminals.append(t_ir)
+                        term_to_elem[tid] = uuid
 
-            is_text_only = (len(inst_terms) == 0) and (
-                "tekst" in def_path.lower() or "text" in def_path.lower()
-            )
-            elements.append(
-                ElementInstIR(
-                    uuid=el_uuid,
+                label, props = _extract_element_label(el_node, def_ir, def_path, e_idx)
+                is_annotation = len(terminals) == 0
+
+                elem_obj = ElementObjIR(
+                    uuid=uuid,
                     def_path=def_path,
+                    category=category,
+                    display_name=display_name,
                     label=label,
-                    x=x,
-                    y=y,
-                    orientation=ori,
-                    is_text_only=is_text_only,
-                    terminals=inst_terms,
+                    terminals=terminals,
+                    properties=props,
+                    is_annotation=is_annotation,
                 )
-            )
+                if is_annotation:
+                    annotations.append(elem_obj)
+                else:
+                    elements.append(elem_obj)
 
-        conductors: List[ConductorIR] = []
-        for c_idx, c_node in enumerate(diag.findall("./conductors/conductor")):
-            t1 = c_node.get("terminal1") or ""
-            t2 = c_node.get("terminal2") or ""
-            e1 = c_node.get("element1") or ""
-            e2 = c_node.get("element2") or ""
+        conductors: List[ConductorLinkIR] = []
+        unmapped = 0
+        conds_el = diag_el.find("conductors")
+        if conds_el is not None:
+            for c_idx, c_node in enumerate(conds_el.findall("conductor"), start=1):
+                t1 = (c_node.get("terminal1") or "").strip()
+                t2 = (c_node.get("terminal2") or "").strip()
+                src_uuid = term_to_elem.get(t1, "")
+                dst_uuid = term_to_elem.get(t2, "")
+                if not src_uuid or not dst_uuid:
+                    unmapped += 1
+                    continue
 
-            src_elem, src_term = term_to_elem.get(t1, (e1, t1))
-            dst_elem, dst_term = term_to_elem.get(t2, (e2, t2))
-            if not src_elem or not dst_elem:
-                continue
-
-            waypoints: List[Tuple[float, float]] = []
-            for pt in c_node.findall("./point"):
-                waypoints.append((_safe_float(pt.get("x")), _safe_float(pt.get("y"))))
-
-            wire_text = (c_node.get("num") or c_node.get("text") or "").strip()
-            wire_color = (c_node.get("color") or c_node.get("conductor_color") or "#1E293B").strip()
-            if not wire_color.startswith("#"):
-                wire_color = "#1E293B"
-            wire_section = (c_node.get("conductor_section") or c_node.get("section") or "").strip()
-
-            conductors.append(
-                ConductorIR(
-                    uuid=c_node.get("uuid") or f"cond_{diag_idx}_{c_idx}",
-                    text=wire_text,
-                    color=wire_color,
-                    section=wire_section,
-                    src_elem_uuid=src_elem,
-                    src_term_id=src_term,
-                    dst_elem_uuid=dst_elem,
-                    dst_term_id=dst_term,
-                    waypoints=waypoints,
+                conductors.append(
+                    ConductorLinkIR(
+                        uuid=(c_node.get("uuid") or f"cond-{idx}-{c_idx}").strip(),
+                        terminal1=t1,
+                        terminal2=t2,
+                        src_elem_uuid=src_uuid,
+                        dst_elem_uuid=dst_uuid,
+                        num=(c_node.get("num") or "").strip(),
+                        function=(c_node.get("function") or "").strip(),
+                        tension_protocol=(c_node.get("tension_protocol") or "").strip(),
+                        color=(c_node.get("color") or "").strip(),
+                        conductor_type=(c_node.get("type") or "multi").strip(),
+                    )
                 )
-            )
 
-        folios.append(
-            FolioIR(
-                title=folio_title,
+        diagrams.append(
+            DiagramIR(
                 order=order,
-                width=width,
-                height=height,
+                title=diag_title,
                 elements=elements,
+                annotations=annotations,
                 conductors=conductors,
+                unmapped_conductors=unmapped,
             )
         )
 
-    folios.sort(key=lambda f: f.order)
-    return QETProjectIR(title=project_title, definitions=definitions, folios=folios)
+    diagrams.sort(key=lambda d: d.order)
+    return ProjectIR(
+        title=title,
+        version=version,
+        properties=properties,
+        collection=collection,
+        diagrams=diagrams,
+    )

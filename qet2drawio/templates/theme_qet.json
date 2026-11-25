@@ -1,0 +1,63 @@
+{
+  "page_header": "rounded=1;whiteSpace=wrap;html=1;fillColor=#0F172A;strokeColor=#334155;fontColor=#F8FAFC;align=left;verticalAlign=middle;spacingLeft=14;",
+  "overview_banner": "rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#3B82F6;fontColor=#F8FAFC;align=left;verticalAlign=top;spacing=12;",
+  "folio_card": "rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontColor=#0F172A;align=left;verticalAlign=top;spacing=10;",
+  "collection_card": "rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#6366F1;fontColor=#1E1B4B;align=left;verticalAlign=top;spacing=10;",
+  "annotations_box": "rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFBEB;strokeColor=#D97706;fontColor=#451A03;align=left;verticalAlign=top;spacing=10;dashed=1;",
+  "categories": {
+    "arduino": {
+      "fillColor": "#DCFCE7",
+      "strokeColor": "#15803D",
+      "fontColor": "#052E16",
+      "badgeBg": "#15803D"
+    },
+    "elektronika": {
+      "fillColor": "#DBEAFE",
+      "strokeColor": "#1D4ED8",
+      "fontColor": "#172554",
+      "badgeBg": "#1D4ED8"
+    },
+    "semiconducteurs": {
+      "fillColor": "#FCE7F3",
+      "strokeColor": "#BE185D",
+      "fontColor": "#500724",
+      "badgeBg": "#BE185D"
+    },
+    "tranzystory": {
+      "fillColor": "#FCE7F3",
+      "strokeColor": "#BE185D",
+      "fontColor": "#500724",
+      "badgeBg": "#BE185D"
+    },
+    "rlc": {
+      "fillColor": "#FEF3C7",
+      "strokeColor": "#B45309",
+      "fontColor": "#451A03",
+      "badgeBg": "#B45309"
+    },
+    "bornes": {
+      "fillColor": "#E0E7FF",
+      "strokeColor": "#4338CA",
+      "fontColor": "#1E1B4B",
+      "badgeBg": "#4338CA"
+    },
+    "zlacza_i_zaciski": {
+      "fillColor": "#E0E7FF",
+      "strokeColor": "#4338CA",
+      "fontColor": "#1E1B4B",
+      "badgeBg": "#4338CA"
+    },
+    "normaux": {
+      "fillColor": "#F1F5F9",
+      "strokeColor": "#475569",
+      "fontColor": "#0F172A",
+      "badgeBg": "#475569"
+    },
+    "default": {
+      "fillColor": "#F8FAFC",
+      "strokeColor": "#475569",
+      "fontColor": "#0F172A",
+      "badgeBg": "#475569"
+    }
+  }
+}

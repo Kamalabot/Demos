@@ -1,42 +1,32 @@
-"""Command-line interface for qet2drawio."""
+"""Command-line interface for qet2drawio (Approach 3)."""
 
 import argparse
 import os
 import sys
 
+from .analyzer import analyze_project
 from .emitter import emit_qet_drawio
+from .layout import compute_project_layout
 from .parser import parse_qet_file
-from .stencil_builder import export_mxlibrary
 
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(
         prog="qet2drawio",
-        description="Compile QElectroTech (.qet, .qetz, .elmt) XML schematics into Draw.io blocks.",
+        description="Compile QElectroTech (.qet / .qetz) projects into Approach 3 Functional Block & Bus Draw.io diagrams.",
     )
-    parser.add_argument("input", help="Path to the input .qet, .qetz, or .elmt file.")
+    parser.add_argument("input", help="Path to the input .qet or .qetz file.")
     parser.add_argument("-o", "--output", help="Output .drawio file path (defaults to <input>.drawio).")
     parser.add_argument(
-        "--mode",
-        choices=["block", "stencil"],
-        default="block",
-        help="Rendering mode: engineering blocks or compact stencil blocks (default: block).",
-    )
-    parser.add_argument(
-        "--scale",
-        type=float,
-        default=1.25,
-        help="Coordinate scale factor from QET units to Draw.io pixels (default: 1.25).",
-    )
-    parser.add_argument(
         "--theme",
-        choices=["iec"],
-        default="iec",
-        help="Color theme preset (default: iec).",
+        choices=["qet"],
+        default="qet",
+        help="Color theme preset (default: qet).",
     )
     parser.add_argument(
-        "--export-library",
-        help="Optional output path to export embedded .elmt symbols as a Draw.io mxlibrary XML file.",
+        "--no-pins",
+        action="store_true",
+        help="Hide terminal pin lists inside functional element blocks.",
     )
 
     args = parser.parse_args(argv)
@@ -47,28 +37,27 @@ def main(argv=None) -> int:
     output_path = args.output or (os.path.splitext(args.input)[0] + ".drawio")
 
     try:
-        print(f"[INFO] Parsing QElectroTech XML: '{args.input}'...")
-        project_ir = parse_qet_file(args.input)
-        total_elems = sum(len(f.elements) for f in project_ir.folios)
-        total_wires = sum(len(f.conductors) for f in project_ir.folios)
-        print(
-            f"[INFO] Loaded '{project_ir.title}': {len(project_ir.folios)} folio(s), "
-            f"{len(project_ir.definitions)} symbol def(s), {total_elems} element(s), {total_wires} conductor(s)."
-        )
+        print(f"[INFO] Parsing QElectroTech project: '{args.input}'...")
+        project = parse_qet_file(args.input)
 
-        written_path = emit_qet_drawio(
-            project_ir,
+        print("[INFO] Analyzing terminal links, bus bundles, and connected nets...")
+        analyze_project(project)
+        compute_project_layout(project)
+
+        for d in project.diagrams:
+            print(
+                f"  - Folio {d.order} '{d.title}': {len(d.elements)} blocks, "
+                f"{len(d.conductors)} conductors -> {len(d.bus_bundles)} bus(es), "
+                f"{len(d.nets)} net(s), {len(d.annotations)} annotation(s)"
+            )
+
+        written = emit_qet_drawio(
+            project,
             output_path,
-            mode=args.mode,
-            scale=args.scale,
             theme_name=args.theme,
+            show_pins=not args.no_pins,
         )
-        print(f"[SUCCESS] Wrote Draw.io schematic: {written_path}")
-
-        if args.export_library:
-            lib_path = export_mxlibrary(project_ir, args.export_library)
-            print(f"[SUCCESS] Exported mxlibrary ({len(project_ir.definitions)} shapes): {lib_path}")
-
+        print(f"[SUCCESS] Wrote Draw.io diagram: {written}")
         return 0
     except Exception as exc:
         print(f"[ERROR] Compilation failed: {exc}", file=sys.stderr)

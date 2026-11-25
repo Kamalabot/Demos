@@ -1,197 +1,133 @@
 <mxfile host="65bd71144e">
-    <diagram name="LCD 4 DATA" id="1844077651888">
-        <mxGraphModel dx="381" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <diagram name="0_Project_Overview" id="1876696119488">
+        <mxGraphModel dx="1188" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="1844077651216" value="&lt;b&gt;12&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:8.5px;color:#475569;&quot;&gt;Resistance 1w&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:8px;color:#64748B;&quot;&gt;Pins: 2&lt;/span&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#E0F2FE;strokeColor=#0284C7;dashed=0;html=1;fontColor=#0C4A6E;strokeWidth=1.4;points=[[0.5,0.1286,0,0,0,0],[0.5,0.5857,0,0,0,0]];" parent="1" vertex="1">
-                    <mxGeometry x="681.25" y="131.25" width="68" height="87.5" as="geometry"/>
+                <mxCell id="1876696118480" value="&lt;span style=&quot;color: rgb(147, 197, 253); font-size: 16px; font-weight: 700; font-family: &amp;quot;Segoe UI&amp;quot;, Arial, sans-serif; background-color: initial;&quot;&gt;ArduinoLCD&lt;/span&gt;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:12px;&quot;&gt;&lt;div style=&quot;font-size:16px; font-weight:700; color:#93C5FD;&quot;&gt;&lt;/div&gt;  &lt;div style=&quot;font-size:11px; color:#CBD5E1; margin-top:2px;&quot;&gt;QElectroTech v0.80 • File-Centric Block Architecture (Approach 3)&lt;/div&gt;&lt;br&gt;&lt;table style=&quot;width:100%; font-size:11px; color:#E2E8F0; border-collapse:collapse;&quot;&gt;    &lt;tbody&gt;&lt;tr&gt;      &lt;td&gt;&lt;b&gt;Folios (&amp;lt;diagram&amp;gt;):&lt;/b&gt; 3&lt;/td&gt;      &lt;td&gt;&lt;b&gt;Collection Defs:&lt;/b&gt; 9&lt;/td&gt;      &lt;td&gt;&lt;b&gt;Functional Blocks:&lt;/b&gt; 11&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;      &lt;td&gt;&lt;b&gt;Raw Conductors:&lt;/b&gt; 47&lt;/td&gt;      &lt;td&gt;&lt;b&gt;Aggregated Buses:&lt;/b&gt; 8&lt;/td&gt;      &lt;td&gt;&lt;b&gt;0-Pin Annotations:&lt;/b&gt; 0&lt;/td&gt;    &lt;/tr&gt;  &lt;/tbody&gt;&lt;/table&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#1E293B;strokeColor=#3B82F6;dashed=0;html=1;fontColor=#F8FAFC;align=left;verticalAlign=top;spacing=12;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="10" width="760" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844077648864" value="&lt;b&gt;lcd_4x16&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:8.5px;color:#475569;&quot;&gt;Afficheur LCD 4X16&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:8px;color:#64748B;&quot;&gt;Pins: 16&lt;/span&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#E0F2FE;strokeColor=#0284C7;dashed=0;html=1;fontColor=#0C4A6E;strokeWidth=1.4;points=[[0.1042,0.1267,0,0,0,0],[0.1458,0.1267,0,0,0,0],[0.1875,0.1267,0,0,0,0],[0.2292,0.1267,0,0,0,0],[0.2708,0.1267,0,0,0,0],[0.3125,0.1267,0,0,0,0],[0.3542,0.1267,0,0,0,0],[0.3958,0.1267,0,0,0,0],[0.4375,0.1267,0,0,0,0],[0.4792,0.1267,0,0,0,0],[0.5208,0.1267,0,0,0,0],[0.5625,0.1267,0,0,0,0],[0.6042,0.1267,0,0,0,0],[0.6458,0.1267,0,0,0,0],[0.6875,0.1267,0,0,0,0],[0.7292,0.1267,0,0,0,0]];" parent="1" vertex="1">
-                    <mxGeometry x="493.75" y="531.25" width="300" height="187.5" as="geometry"/>
+                <mxCell id="1876696120832" value="&#10;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px;&quot;&gt;&#10;  &lt;div style=&quot;font-size:13px; font-weight:700; color:#0F172A;&quot;&gt;Folio 1: LCD 4 DATA&lt;/div&gt;&#10;  &lt;hr style=&quot;border:0; border-top:1px solid #CBD5E1; margin:5px 0;&quot;/&gt;&#10;  &lt;div&gt;&lt;b&gt;Functional Elements:&lt;/b&gt; 5&lt;/div&gt;&#10;  &lt;div&gt;&lt;b&gt;Annotations (0-pin):&lt;/b&gt; 0&lt;/div&gt;&#10;  &lt;div&gt;&lt;b&gt;Conductors &amp;rarr; Buses:&lt;/b&gt; 19 &amp;rarr; 5&lt;/div&gt;&#10;  &lt;div&gt;&lt;b&gt;Connected Nets:&lt;/b&gt; 11&lt;/div&gt;&#10;  &#10;  &lt;div style=&quot;margin-top:5px; color:#475569;&quot;&gt;&lt;b&gt;Categories:&lt;/b&gt;&#10;    arduino (5)&#10;  &lt;/div&gt;&#10;  &#10;&lt;/div&gt;&#10;" style="whiteSpace=wrap;rounded=1;fillColor=#F8FAFC;strokeColor=#64748B;dashed=0;html=1;fontColor=#0F172A;align=left;verticalAlign=top;spacing=10;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="180" width="360" height="125" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844077654240" value="&lt;b&gt;arduino_uno&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:8.5px;color:#475569;&quot;&gt;Arduino Uno&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:8px;color:#64748B;&quot;&gt;Pins: 34&lt;/span&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#E0F2FE;strokeColor=#0284C7;dashed=0;html=1;fontColor=#0C4A6E;strokeWidth=1.4;points=[[0.2,0.0704,0,0,0,0],[0.7,0.0704,0,0,0,0],[0.88,0.2778,0,0,0,0],[0.88,0.3148,0,0,0,0],[0.88,0.3519,0,0,0,0],[0.12,0.3889,0,0,0,0],[0.88,0.3889,0,0,0,0],[0.12,0.4259,0,0,0,0],[0.88,0.4259,0,0,0,0],[0.12,0.463,0,0,0,0],[0.88,0.463,0,0,0,0],[0.12,0.5,0,0,0,0],[0.88,0.5,0,0,0,0],[0.12,0.537,0,0,0,0],[0.88,0.537,0,0,0,0],[0.12,0.5741,0,0,0,0],[0.88,0.5741,0,0,0,0],[0.12,0.6111,0,0,0,0],[0.88,0.6111,0,0,0,0],[0.12,0.6481,0,0,0,0],[0.88,0.6481,0,0,0,0],[0.88,0.6852,0,0,0,0],[0.12,0.7222,0,0,0,0],[0.88,0.7222,0,0,0,0],[0.12,0.7593,0,0,0,0],[0.88,0.7593,0,0,0,0],[0.12,0.7963,0,0,0,0],[0.88,0.7963,0,0,0,0],[0.12,0.8333,0,0,0,0],[0.88,0.8333,0,0,0,0],[0.12,0.8704,0,0,0,0],[0.88,0.8704,0,0,0,0],[0.12,0.9074,0,0,0,0],[0.88,0.9074,0,0,0,0]];" parent="1" vertex="1">
-                    <mxGeometry x="112.5" y="43.75" width="250" height="337.5" as="geometry"/>
+                <mxCell id="1876696120496" value="&#10;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px;&quot;&gt;&#10;  &lt;div style=&quot;font-size:13px; font-weight:700; color:#0F172A;&quot;&gt;Folio 2: LCD 4 DATA&lt;/div&gt;&#10;  &lt;hr style=&quot;border:0; border-top:1px solid #CBD5E1; margin:5px 0;&quot;/&gt;&#10;  &lt;div&gt;&lt;b&gt;Functional Elements:&lt;/b&gt; 3&lt;/div&gt;&#10;  &lt;div&gt;&lt;b&gt;Annotations (0-pin):&lt;/b&gt; 0&lt;/div&gt;&#10;  &lt;div&gt;&lt;b&gt;Conductors &amp;rarr; Buses:&lt;/b&gt; 10 &amp;rarr; 1&lt;/div&gt;&#10;  &lt;div&gt;&lt;b&gt;Connected Nets:&lt;/b&gt; 8&lt;/div&gt;&#10;  &#10;  &lt;div style=&quot;margin-top:5px; color:#475569;&quot;&gt;&lt;b&gt;Categories:&lt;/b&gt;&#10;    arduino (3)&#10;  &lt;/div&gt;&#10;  &#10;&lt;/div&gt;&#10;" style="whiteSpace=wrap;rounded=1;fillColor=#F8FAFC;strokeColor=#64748B;dashed=0;html=1;fontColor=#0F172A;align=left;verticalAlign=top;spacing=10;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="325" width="360" height="125" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844077654576" value="&lt;b&gt;10K&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:8.5px;color:#475569;&quot;&gt;Potar&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:8px;color:#64748B;&quot;&gt;Pins: 3&lt;/span&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#E0F2FE;strokeColor=#0284C7;dashed=0;html=1;fontColor=#0C4A6E;strokeWidth=1.4;points=[[0.6833,0.25,0,0,0,0],[0.6833,0.4167,0,0,0,0],[0.6833,0.5833,0,0,0,0]];" parent="1" vertex="1">
-                    <mxGeometry x="206.25" y="431.25" width="75" height="75" as="geometry"/>
+                <mxCell id="1876696114112" value="&#10;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px;&quot;&gt;&#10;  &lt;div style=&quot;font-size:13px; font-weight:700; color:#0F172A;&quot;&gt;Folio 3: GEIGER&lt;/div&gt;&#10;  &lt;hr style=&quot;border:0; border-top:1px solid #CBD5E1; margin:5px 0;&quot;/&gt;&#10;  &lt;div&gt;&lt;b&gt;Functional Elements:&lt;/b&gt; 3&lt;/div&gt;&#10;  &lt;div&gt;&lt;b&gt;Annotations (0-pin):&lt;/b&gt; 0&lt;/div&gt;&#10;  &lt;div&gt;&lt;b&gt;Conductors &amp;rarr; Buses:&lt;/b&gt; 18 &amp;rarr; 2&lt;/div&gt;&#10;  &lt;div&gt;&lt;b&gt;Connected Nets:&lt;/b&gt; 18&lt;/div&gt;&#10;  &#10;  &lt;div style=&quot;margin-top:5px; color:#475569;&quot;&gt;&lt;b&gt;Categories:&lt;/b&gt;&#10;    arduino (3)&#10;  &lt;/div&gt;&#10;  &#10;&lt;/div&gt;&#10;" style="whiteSpace=wrap;rounded=1;fillColor=#F8FAFC;strokeColor=#64748B;dashed=0;html=1;fontColor=#0F172A;align=left;verticalAlign=top;spacing=10;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="470" width="360" height="125" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844077653904" value="&lt;b&gt;5volt&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:8.5px;color:#475569;&quot;&gt;Liaisons 5volt&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:8px;color:#64748B;&quot;&gt;Pins: 3&lt;/span&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#E0F2FE;strokeColor=#0284C7;dashed=0;html=1;fontColor=#0C4A6E;strokeWidth=1.4;points=[[0.25,0.5333,0,0,0,0],[0.4167,0.5333,0,0,0,0],[0.5833,0.5333,0,0,0,0]];" parent="1" vertex="1">
-                    <mxGeometry x="656.25" y="87.5" width="75" height="42" as="geometry"/>
+                <mxCell id="1876696115456" value="&lt;br&gt;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px;&quot;&gt;&lt;br&gt;  &lt;div style=&quot;font-size:13px; font-weight:700; color:#312E81;&quot;&gt;&amp;lt;collection&amp;gt; Embedded Definitions&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;margin-bottom:4px;&quot;&gt;&lt;b&gt;arduino&lt;/b&gt; (9): Geiger Libelium, Potar, Afficheur LCD 2X16, Liaisons 5volt, ...&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#EEF2FF;strokeColor=#6366F1;dashed=0;html=1;fontColor=#1E1B4B;align=left;verticalAlign=top;spacing=10;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="172.5" width="360" height="140" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844077654912" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.6875;entryY=0.1267;entryDx=0;entryDy=0;exitX=0.5;exitY=0.5857;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844077651216" target="1844077648864" edge="1">
+                <mxCell id="1876696116800" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;endArrow=classic;endFill=0;strokeColor=#64748B;" parent="1" source="1876696118480" target="1876696120832" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844077650544" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.5;entryY=0.1286;entryDx=0;entryDy=0;exitX=0.5833;exitY=0.5333;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844077653904" target="1844077651216" edge="1">
+                <mxCell id="1876705182112" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;endArrow=classic;endFill=0;strokeColor=#64748B;" parent="1" source="1876696118480" target="1876696120496" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="420" y="218"/>
+                            <mxPoint x="460" y="218"/>
+                            <mxPoint x="460" y="388"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1876705182448" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;endArrow=classic;endFill=0;strokeColor=#64748B;" parent="1" source="1876696118480" target="1876696114112" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="420" y="290"/>
+                            <mxPoint x="490" y="290"/>
+                            <mxPoint x="490" y="533"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="1_LCD 4 DATA" id="1876705201040">
+        <mxGraphModel dx="1188" dy="1679" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="1876705182784" value="&#10;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif;&quot;&gt;&#10;  &lt;span style=&quot;font-size:14px; font-weight:700; color:#F8FAFC;&quot;&gt;Folio 1: LCD 4 DATA&lt;/span&gt;&#10;  &lt;span style=&quot;font-size:11px; color:#93C5FD; margin-left:14px;&quot;&gt;&#10;    5 Functional Blocks &amp;bull;&#10;    19 Conductors &amp;rarr; 5 Aggregated Buses &amp;bull;&#10;    11 Nets &amp;bull;&#10;    0 Annotations&#10;  &lt;/span&gt;&#10;&lt;/div&gt;&#10;" style="whiteSpace=wrap;rounded=1;fillColor=#0F172A;strokeColor=#334155;dashed=0;html=1;fontColor=#F8FAFC;align=left;verticalAlign=middle;spacingLeft=14;" parent="1" vertex="1">
+                    <mxGeometry x="40" width="720" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="1876705183120" value="&lt;br&gt;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px; text-align:left;&quot;&gt;&lt;br&gt;  &lt;div style=&quot;background:#15803D; color:#FFFFFF; padding:2px 6px; border-radius:3px; font-size:10px; font-weight:700; display:inline-block;&quot;&gt;ARDUINO&lt;/div&gt;&lt;br&gt;  &lt;div style=&quot;font-size:13px; font-weight:700; margin-top:4px;&quot;&gt;12&lt;/div&gt;&lt;br&gt;  &lt;div style=&quot;font-size:10px; opacity:0.8;&quot;&gt;Resistance 1w&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;font-size:10px;&quot;&gt;&lt;b&gt;Pins (2):&lt;/b&gt;&lt;br&gt;    T0, T1&lt;br&gt;  &lt;/div&gt;&lt;br&gt;  &lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#DCFCE7;strokeColor=#15803D;dashed=0;html=1;align=left;verticalAlign=top;spacing=8;fontColor=#052E16;strokeWidth=1.6;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="630" width="230" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="1876705183456" value="&lt;br&gt;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px; text-align:left;&quot;&gt;&lt;br&gt;  &lt;div style=&quot;background:#15803D; color:#FFFFFF; padding:2px 6px; border-radius:3px; font-size:10px; font-weight:700; display:inline-block;&quot;&gt;ARDUINO&lt;/div&gt;&lt;br&gt;  &lt;div style=&quot;font-size:13px; font-weight:700; margin-top:4px;&quot;&gt;Afficheur LCD 4X16&lt;/div&gt;&lt;br&gt;  &lt;div style=&quot;font-size:10px; opacity:0.8;&quot;&gt;Afficheur LCD 4X16&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;font-size:10px;&quot;&gt;&lt;b&gt;Pins (16):&lt;/b&gt;&lt;br&gt;    T2, T3, T4, T5, T6, T7, +10 more&lt;br&gt;  &lt;/div&gt;&lt;br&gt;  &lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#DCFCE7;strokeColor=#15803D;dashed=0;html=1;align=left;verticalAlign=top;spacing=8;fontColor=#052E16;strokeWidth=1.6;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="120" width="230" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="1876705183792" value="&lt;br&gt;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px; text-align:left;&quot;&gt;&lt;br&gt;  &lt;div style=&quot;background:#15803D; color:#FFFFFF; padding:2px 6px; border-radius:3px; font-size:10px; font-weight:700; display:inline-block;&quot;&gt;ARDUINO&lt;/div&gt;&lt;br&gt;  &lt;div style=&quot;font-size:13px; font-weight:700; margin-top:4px;&quot;&gt;Arduino Uno&lt;/div&gt;&lt;br&gt;  &lt;div style=&quot;font-size:10px; opacity:0.8;&quot;&gt;Arduino Uno&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;font-size:10px;&quot;&gt;&lt;b&gt;Pins (34):&lt;/b&gt;&lt;br&gt;    T18, T19, T20, T21, T22, T23, +28 more&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#DCFCE7;strokeColor=#15803D;dashed=0;html=1;align=left;verticalAlign=top;spacing=8;fontColor=#052E16;strokeWidth=1.6;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="466" width="230" height="154" as="geometry"/>
+                </mxCell>
+                <mxCell id="1876705184128" value="&#10;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px; text-align:left;&quot;&gt;&#10;  &lt;div style=&quot;background:#15803D; color:#FFFFFF; padding:2px 6px; border-radius:3px; font-size:10px; font-weight:700; display:inline-block;&quot;&gt;ARDUINO&lt;/div&gt;&#10;  &lt;div style=&quot;font-size:13px; font-weight:700; margin-top:4px;&quot;&gt;10K&lt;/div&gt;&#10;  &lt;div style=&quot;font-size:10px; opacity:0.8;&quot;&gt;Potar&lt;/div&gt;&#10;  &#10;  &lt;hr style=&quot;border:0; border-top:1px solid rgba(0,0,0,0.15); margin:4px 0;&quot;/&gt;&#10;  &lt;div style=&quot;font-size:10px;&quot;&gt;&#10;    &lt;b&gt;Pins (3):&lt;/b&gt;&#10;    T52, T53, T54&#10;  &lt;/div&gt;&#10;  &#10;&lt;/div&gt;&#10;" style="whiteSpace=wrap;rounded=1;fillColor=#DCFCE7;strokeColor=#15803D;dashed=0;html=1;align=left;verticalAlign=top;spacing=8;fontColor=#052E16;strokeWidth=1.6;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="320" width="230" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="1876705184464" value="&lt;br&gt;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px; text-align:left;&quot;&gt;&lt;br&gt;  &lt;div style=&quot;background:#15803D; color:#FFFFFF; padding:2px 6px; border-radius:3px; font-size:10px; font-weight:700; display:inline-block;&quot;&gt;ARDUINO&lt;/div&gt;&lt;br&gt;  &lt;div style=&quot;font-size:13px; font-weight:700; margin-top:4px;&quot;&gt;5volt&lt;/div&gt;&lt;br&gt;  &lt;div style=&quot;font-size:10px; opacity:0.8;&quot;&gt;Liaisons 5volt&lt;/div&gt;  &lt;div style=&quot;font-size:10px;&quot;&gt;&lt;br&gt;    &lt;b&gt;Pins (3):&lt;/b&gt;&lt;br&gt;    T55, T56, T57&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#DCFCE7;strokeColor=#15803D;dashed=0;html=1;align=left;verticalAlign=top;spacing=8;fontColor=#052E16;strokeWidth=1.6;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="788" width="230" height="162" as="geometry"/>
+                </mxCell>
+                <mxCell id="1876705184800" value="9 wires&#10;[T11↔T52, T10↔T52, T9↔T52, ...]" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;startArrow=none;endArrow=none;strokeColor=#0000ff;" parent="1" source="1876705183456" target="1876705184128" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844077655248" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.6833;entryY=0.25;entryDx=0;entryDy=0;exitX=0.4792;exitY=0.1267;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#0000ff;" parent="1" source="1844077648864" target="1844077654576" edge="1">
+                <mxCell id="1876705185136" value="6 wires&#10;[T5↔T47, T45↔T7, T43↔T12, ...]" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;startArrow=none;endArrow=none;strokeColor=#55ff00;" parent="1" source="1876705183792" target="1876705183456" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844077655584" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.6833;entryY=0.25;entryDx=0;entryDy=0;exitX=0.4375;exitY=0.1267;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#0000ff;" parent="1" source="1844077648864" target="1844077654576" edge="1">
+                <mxCell id="1876705185472" value="2 wires&#10;[T52↔T33, T31↔T54]" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;startArrow=none;endArrow=none;strokeColor=#0055ff;" parent="1" source="1876705183792" target="1876705184128" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844077655920" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.6833;entryY=0.25;entryDx=0;entryDy=0;exitX=0.3958;exitY=0.1267;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#0000ff;" parent="1" source="1844077648864" target="1844077654576" edge="1">
+                <mxCell id="1876705185808" value="T57 ↔ T0" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;startArrow=none;endArrow=none;strokeColor=#334155;" parent="1" source="1876705184464" target="1876705183120" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844077656256" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.6833;entryY=0.25;entryDx=0;entryDy=0;exitX=0.3542;exitY=0.1267;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#0000ff;" parent="1" source="1844077648864" target="1844077654576" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844077656592" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.6833;entryY=0.25;entryDx=0;entryDy=0;exitX=0.2708;exitY=0.1267;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#0000ff;" parent="1" source="1844077648864" target="1844077654576" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844077656928" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.6833;entryY=0.25;entryDx=0;entryDy=0;exitX=0.1042;exitY=0.1267;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#0000ff;" parent="1" source="1844077648864" target="1844077654576" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844077657264" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.88;entryY=0.8333;entryDx=0;entryDy=0;exitX=0.2292;exitY=0.1267;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#55aa7f;" parent="1" source="1844077648864" target="1844077654240" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844077657600" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.1875;entryY=0.1267;entryDx=0;entryDy=0;exitX=0.6833;exitY=0.4167;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#ffaa00;" parent="1" source="1844077654576" target="1844077648864" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087013456" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.3125;entryY=0.1267;entryDx=0;entryDy=0;exitX=0.88;exitY=0.7963;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#55aa00;" parent="1" source="1844077654240" target="1844077648864" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087013792" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.5208;entryY=0.1267;entryDx=0;entryDy=0;exitX=0.88;exitY=0.7593;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#55ff00;" parent="1" source="1844077654240" target="1844077648864" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087014128" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.5625;entryY=0.1267;entryDx=0;entryDy=0;exitX=0.88;exitY=0.7222;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#55ff00;" parent="1" source="1844077654240" target="1844077648864" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087014464" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.12;entryY=0.5741;entryDx=0;entryDy=0;exitX=0.6833;exitY=0.25;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#0055ff;" parent="1" source="1844077654576" target="1844077654240" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087014800" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.6042;entryY=0.1267;entryDx=0;entryDy=0;exitX=0.88;exitY=0.6852;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#55ff00;" parent="1" source="1844077654240" target="1844077648864" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087015136" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.6833;entryY=0.5833;entryDx=0;entryDy=0;exitX=0.12;exitY=0.537;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#ff0000;" parent="1" source="1844077654240" target="1844077654576" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087015472" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.88;entryY=0.6481;entryDx=0;entryDy=0;exitX=0.6458;exitY=0.1267;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#55ff00;" parent="1" source="1844077648864" target="1844077654240" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087015808" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.1458;entryY=0.1267;entryDx=0;entryDy=0;exitX=0.6833;exitY=0.5833;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#ff0000;" parent="1" source="1844077654576" target="1844077648864" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087016144" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.7292;entryY=0.1267;entryDx=0;entryDy=0;exitX=0.6833;exitY=0.25;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#0000ff;" parent="1" source="1844077654576" target="1844077648864" edge="1">
+                <mxCell id="1876705186144" value="T1 ↔ T16" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;startArrow=none;endArrow=none;strokeColor=#334155;" parent="1" source="1876705183456" target="1876705183120" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
-    <diagram name="LCD 4 DATA" id="1844086987088">
-        <mxGraphModel dx="381" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <diagram name="2_LCD 4 DATA" id="1876705205840">
+        <mxGraphModel dx="2037" dy="830" grid="1" gridSize="10" guides="1" toolTips="1" connect="1" arrows="1" fold="1" page="3" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="1844087016480" value="&lt;b&gt;lcd_4x16&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:8.5px;color:#475569;&quot;&gt;Afficheur LCD 4X16&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:8px;color:#64748B;&quot;&gt;Pins: 16&lt;/span&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#E0F2FE;strokeColor=#0284C7;dashed=0;html=1;fontColor=#0C4A6E;strokeWidth=1.4;points=[[0.34,0.1042,0,0,0,0],[0.34,0.1458,0,0,0,0],[0.34,0.1875,0,0,0,0],[0.34,0.2292,0,0,0,0],[0.34,0.2708,0,0,0,0],[0.34,0.3125,0,0,0,0],[0.34,0.3542,0,0,0,0],[0.34,0.3958,0,0,0,0],[0.34,0.4375,0,0,0,0],[0.34,0.4792,0,0,0,0],[0.34,0.5208,0,0,0,0],[0.34,0.5625,0,0,0,0],[0.34,0.6042,0,0,0,0],[0.34,0.6458,0,0,0,0],[0.34,0.6875,0,0,0,0],[0.34,0.7292,0,0,0,0]];" parent="1" vertex="1">
-                    <mxGeometry x="1143.75" y="256.25" width="187.5" height="300" as="geometry"/>
+                <mxCell id="1876705186480" value="&#10;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif;&quot;&gt;&#10;  &lt;span style=&quot;font-size:14px; font-weight:700; color:#F8FAFC;&quot;&gt;Folio 2: LCD 4 DATA&lt;/span&gt;&#10;  &lt;span style=&quot;font-size:11px; color:#93C5FD; margin-left:14px;&quot;&gt;&#10;    3 Functional Blocks &amp;bull;&#10;    10 Conductors &amp;rarr; 1 Aggregated Buses &amp;bull;&#10;    8 Nets &amp;bull;&#10;    0 Annotations&#10;  &lt;/span&gt;&#10;&lt;/div&gt;&#10;" style="whiteSpace=wrap;rounded=1;fillColor=#0F172A;strokeColor=#334155;dashed=0;html=1;fontColor=#F8FAFC;align=left;verticalAlign=middle;spacingLeft=14;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="30" width="720.0" height="56" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844087016816" value="&lt;b&gt;cable_ide&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:8.5px;color:#475569;&quot;&gt;cable plat LCD Arduino&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:8px;color:#64748B;&quot;&gt;Pins: 26&lt;/span&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#E0F2FE;strokeColor=#0284C7;dashed=0;html=1;fontColor=#0C4A6E;strokeWidth=1.4;points=[[0.1367,0.0789,0,0,0,0],[0.1367,0.1316,0,0,0,0],[0.1367,0.1842,0,0,0,0],[0.1367,0.2368,0,0,0,0],[0.1367,0.2895,0,0,0,0],[0.1367,0.3421,0,0,0,0],[0.1367,0.3947,0,0,0,0],[0.1367,0.4474,0,0,0,0],[0.1367,0.5,0,0,0,0],[0.1367,0.5526,0,0,0,0],[0.1367,0.6053,0,0,0,0],[0.1367,0.6579,0,0,0,0],[0.1367,0.7105,0,0,0,0],[0.1367,0.7632,0,0,0,0],[0.1367,0.8158,0,0,0,0],[0.1367,0.8684,0,0,0,0],[0.0,0.0789,0,0,0,0],[0.0,0.1316,0,0,0,0],[0.0,0.2368,0,0,0,0],[0.0,0.3421,0,0,0,0],[0.0,0.6053,0,0,0,0],[0.0,0.6579,0,0,0,0],[0.0,0.7105,0,0,0,0],[0.0,0.7632,0,0,0,0],[0.0,0.8158,0,0,0,0],[0.0,0.8684,0,0,0,0]];" parent="1" vertex="1">
-                    <mxGeometry x="931.25" y="268.75" width="375" height="237.5" as="geometry"/>
+                <mxCell id="1876705186816" value="&#10;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px; text-align:left;&quot;&gt;&#10;  &lt;div style=&quot;background:#15803D; color:#FFFFFF; padding:2px 6px; border-radius:3px; font-size:10px; font-weight:700; display:inline-block;&quot;&gt;ARDUINO&lt;/div&gt;&#10;  &lt;div style=&quot;font-size:13px; font-weight:700; margin-top:4px;&quot;&gt;Afficheur LCD 4X16&lt;/div&gt;&#10;  &lt;div style=&quot;font-size:10px; opacity:0.8;&quot;&gt;Afficheur LCD 4X16&lt;/div&gt;&#10;  &#10;  &lt;hr style=&quot;border:0; border-top:1px solid rgba(0,0,0,0.15); margin:4px 0;&quot;/&gt;&#10;  &lt;div style=&quot;font-size:10px;&quot;&gt;&#10;    &lt;b&gt;Pins (16):&lt;/b&gt;&#10;    T0, T1, T2, T3, T4, T5, +10 more&#10;  &lt;/div&gt;&#10;  &#10;&lt;/div&gt;&#10;" style="whiteSpace=wrap;rounded=1;fillColor=#DCFCE7;strokeColor=#15803D;dashed=0;html=1;align=left;verticalAlign=top;spacing=8;fontColor=#052E16;strokeWidth=1.6;" vertex="1" parent="1">
+                    <mxGeometry x="40.0" y="512.0" width="230.0" height="146.0" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844087017152" value="&lt;b&gt;arduino_uno&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:8.5px;color:#475569;&quot;&gt;Arduino Uno&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:8px;color:#64748B;&quot;&gt;Pins: 34&lt;/span&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#E0F2FE;strokeColor=#0284C7;dashed=0;html=1;fontColor=#0C4A6E;strokeWidth=1.4;points=[[0.2,0.0704,0,0,0,0],[0.7,0.0704,0,0,0,0],[0.88,0.2778,0,0,0,0],[0.88,0.3148,0,0,0,0],[0.88,0.3519,0,0,0,0],[0.12,0.3889,0,0,0,0],[0.88,0.3889,0,0,0,0],[0.12,0.4259,0,0,0,0],[0.88,0.4259,0,0,0,0],[0.12,0.463,0,0,0,0],[0.88,0.463,0,0,0,0],[0.12,0.5,0,0,0,0],[0.88,0.5,0,0,0,0],[0.12,0.537,0,0,0,0],[0.88,0.537,0,0,0,0],[0.12,0.5741,0,0,0,0],[0.88,0.5741,0,0,0,0],[0.12,0.6111,0,0,0,0],[0.88,0.6111,0,0,0,0],[0.12,0.6481,0,0,0,0],[0.88,0.6481,0,0,0,0],[0.88,0.6852,0,0,0,0],[0.12,0.7222,0,0,0,0],[0.88,0.7222,0,0,0,0],[0.12,0.7593,0,0,0,0],[0.88,0.7593,0,0,0,0],[0.12,0.7963,0,0,0,0],[0.88,0.7963,0,0,0,0],[0.12,0.8333,0,0,0,0],[0.88,0.8333,0,0,0,0],[0.12,0.8704,0,0,0,0],[0.88,0.8704,0,0,0,0],[0.12,0.9074,0,0,0,0],[0.88,0.9074,0,0,0,0]];" parent="1" vertex="1">
-                    <mxGeometry x="200" y="343.75" width="250" height="337.5" as="geometry"/>
+                <mxCell id="1876705187152" value="&#10;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px; text-align:left;&quot;&gt;&#10;  &lt;div style=&quot;background:#15803D; color:#FFFFFF; padding:2px 6px; border-radius:3px; font-size:10px; font-weight:700; display:inline-block;&quot;&gt;ARDUINO&lt;/div&gt;&#10;  &lt;div style=&quot;font-size:13px; font-weight:700; margin-top:4px;&quot;&gt;cable plat LCD Arduino&lt;/div&gt;&#10;  &lt;div style=&quot;font-size:10px; opacity:0.8;&quot;&gt;cable plat LCD Arduino&lt;/div&gt;&#10;  &#10;  &lt;hr style=&quot;border:0; border-top:1px solid rgba(0,0,0,0.15); margin:4px 0;&quot;/&gt;&#10;  &lt;div style=&quot;font-size:10px;&quot;&gt;&#10;    &lt;b&gt;Pins (26):&lt;/b&gt;&#10;    T16, T17, T18, T19, T20, T21, +20 more&#10;  &lt;/div&gt;&#10;  &#10;&lt;/div&gt;&#10;" style="whiteSpace=wrap;rounded=1;fillColor=#DCFCE7;strokeColor=#15803D;dashed=0;html=1;align=left;verticalAlign=top;spacing=8;fontColor=#052E16;strokeWidth=1.6;" vertex="1" parent="1">
+                    <mxGeometry x="40.0" y="326.0" width="230.0" height="146.0" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844087017488" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.12;entryY=0.5741;entryDx=0;entryDy=0;exitX=0.0;exitY=0.0789;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#00aaff;" parent="1" source="1844087016816" target="1844087017152" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="1876705187488" value="&#10;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px; text-align:left;&quot;&gt;&#10;  &lt;div style=&quot;background:#15803D; color:#FFFFFF; padding:2px 6px; border-radius:3px; font-size:10px; font-weight:700; display:inline-block;&quot;&gt;ARDUINO&lt;/div&gt;&#10;  &lt;div style=&quot;font-size:13px; font-weight:700; margin-top:4px;&quot;&gt;Arduino Uno&lt;/div&gt;&#10;  &lt;div style=&quot;font-size:10px; opacity:0.8;&quot;&gt;Arduino Uno&lt;/div&gt;&#10;  &#10;  &lt;hr style=&quot;border:0; border-top:1px solid rgba(0,0,0,0.15); margin:4px 0;&quot;/&gt;&#10;  &lt;div style=&quot;font-size:10px;&quot;&gt;&#10;    &lt;b&gt;Pins (34):&lt;/b&gt;&#10;    T42, T43, T44, T45, T46, T47, +28 more&#10;  &lt;/div&gt;&#10;  &#10;&lt;/div&gt;&#10;" style="whiteSpace=wrap;rounded=1;fillColor=#DCFCE7;strokeColor=#15803D;dashed=0;html=1;align=left;verticalAlign=top;spacing=8;fontColor=#052E16;strokeWidth=1.6;" vertex="1" parent="1">
+                    <mxGeometry x="40.0" y="140.0" width="230.0" height="146.0" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844087017824" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.12;entryY=0.537;entryDx=0;entryDy=0;exitX=0.0;exitY=0.1316;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#ff0000;" parent="1" source="1844087016816" target="1844087017152" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087018160" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.88;entryY=0.7593;entryDx=0;entryDy=0;exitX=0.0;exitY=0.6053;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087016816" target="1844087017152" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087018496" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.88;entryY=0.7222;entryDx=0;entryDy=0;exitX=0.0;exitY=0.6579;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087016816" target="1844087017152" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087018832" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.88;entryY=0.6852;entryDx=0;entryDy=0;exitX=0.0;exitY=0.7105;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087016816" target="1844087017152" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087019168" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.88;entryY=0.6481;entryDx=0;entryDy=0;exitX=0.0;exitY=0.7632;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087016816" target="1844087017152" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087019504" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.12;entryY=0.5741;entryDx=0;entryDy=0;exitX=0.0;exitY=0.8684;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#55aaff;" parent="1" source="1844087016816" target="1844087017152" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087019840" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.12;entryY=0.537;entryDx=0;entryDy=0;exitX=0.0;exitY=0.8158;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#ff0000;" parent="1" source="1844087016816" target="1844087017152" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087020176" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.88;entryY=0.5;entryDx=0;entryDy=0;exitX=0.0;exitY=0.3421;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087016816" target="1844087017152" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087020512" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.88;entryY=0.463;entryDx=0;entryDy=0;exitX=0.0;exitY=0.2368;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087016816" target="1844087017152" edge="1">
+                <mxCell id="1876705187824" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;startArrow=none;endArrow=none;strokeColor=#ff0000;" edge="1" parent="1" source="1876705187488" target="1876705187152" value="10 wires&#10;[T32↔T57, T33↔T55, T36↔T67, ...]">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
-    <diagram name="GEIGER" id="1844086992528">
-        <mxGraphModel dx="381" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <diagram name="3_GEIGER" id="1876695874784">
+        <mxGraphModel dx="2037" dy="830" grid="1" gridSize="10" guides="1" toolTips="1" connect="1" arrows="1" fold="1" page="4" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="1844087020848" value="&lt;b&gt;lcd_2x16&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:8.5px;color:#475569;&quot;&gt;Afficheur LCD 2X16&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:8px;color:#64748B;&quot;&gt;Pins: 16&lt;/span&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#E0F2FE;strokeColor=#0284C7;dashed=0;html=1;fontColor=#0C4A6E;strokeWidth=1.4;points=[[0.0962,0.1167,0,0,0,0],[0.1346,0.1167,0,0,0,0],[0.1731,0.1167,0,0,0,0],[0.2115,0.1167,0,0,0,0],[0.25,0.1167,0,0,0,0],[0.2885,0.1167,0,0,0,0],[0.3269,0.1167,0,0,0,0],[0.3654,0.1167,0,0,0,0],[0.4038,0.1167,0,0,0,0],[0.4423,0.1167,0,0,0,0],[0.4808,0.1167,0,0,0,0],[0.5192,0.1167,0,0,0,0],[0.5577,0.1167,0,0,0,0],[0.5962,0.1167,0,0,0,0],[0.6346,0.1167,0,0,0,0],[0.6731,0.1167,0,0,0,0]];" parent="1" vertex="1">
-                    <mxGeometry x="168.75" y="575" width="325" height="150" as="geometry"/>
+                <mxCell id="1876705188160" value="&#10;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif;&quot;&gt;&#10;  &lt;span style=&quot;font-size:14px; font-weight:700; color:#F8FAFC;&quot;&gt;Folio 3: GEIGER&lt;/span&gt;&#10;  &lt;span style=&quot;font-size:11px; color:#93C5FD; margin-left:14px;&quot;&gt;&#10;    3 Functional Blocks &amp;bull;&#10;    18 Conductors &amp;rarr; 2 Aggregated Buses &amp;bull;&#10;    18 Nets &amp;bull;&#10;    0 Annotations&#10;  &lt;/span&gt;&#10;&lt;/div&gt;&#10;" style="whiteSpace=wrap;rounded=1;fillColor=#0F172A;strokeColor=#334155;dashed=0;html=1;fontColor=#F8FAFC;align=left;verticalAlign=middle;spacingLeft=14;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="30" width="720.0" height="56" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844087021184" value="&lt;b&gt;tube_geiger_j305b&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:8.5px;color:#475569;&quot;&gt;Geiger Tube J305β&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:8px;color:#64748B;&quot;&gt;Pins: 2&lt;/span&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#E0F2FE;strokeColor=#0284C7;dashed=0;html=1;fontColor=#0C4A6E;strokeWidth=1.4;points=[[0.0514,0.5,0,0,0,0],[0.9757,0.5,0,0,0,0]];" parent="1" vertex="1">
-                    <mxGeometry x="631.25" y="668.75" width="462.5" height="62.5" as="geometry"/>
+                <mxCell id="1876705188496" value="&#10;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px; text-align:left;&quot;&gt;&#10;  &lt;div style=&quot;background:#15803D; color:#FFFFFF; padding:2px 6px; border-radius:3px; font-size:10px; font-weight:700; display:inline-block;&quot;&gt;ARDUINO&lt;/div&gt;&#10;  &lt;div style=&quot;font-size:13px; font-weight:700; margin-top:4px;&quot;&gt;Afficheur LCD 2X16&lt;/div&gt;&#10;  &lt;div style=&quot;font-size:10px; opacity:0.8;&quot;&gt;Afficheur LCD 2X16&lt;/div&gt;&#10;  &#10;  &lt;hr style=&quot;border:0; border-top:1px solid rgba(0,0,0,0.15); margin:4px 0;&quot;/&gt;&#10;  &lt;div style=&quot;font-size:10px;&quot;&gt;&#10;    &lt;b&gt;Pins (16):&lt;/b&gt;&#10;    T0, T1, T2, T3, T4, T5, +10 more&#10;  &lt;/div&gt;&#10;  &#10;&lt;/div&gt;&#10;" style="whiteSpace=wrap;rounded=1;fillColor=#DCFCE7;strokeColor=#15803D;dashed=0;html=1;align=left;verticalAlign=top;spacing=8;fontColor=#052E16;strokeWidth=1.6;" vertex="1" parent="1">
+                    <mxGeometry x="40.0" y="326.0" width="230.0" height="146.0" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844087021520" value="&lt;b&gt;arduino_geiger&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:8.5px;color:#475569;&quot;&gt;Geiger Libelium&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:8px;color:#64748B;&quot;&gt;Pins: 18&lt;/span&gt;" style="whiteSpace=wrap;rounded=1;fillColor=#E0F2FE;strokeColor=#0284C7;dashed=0;html=1;fontColor=#0C4A6E;strokeWidth=1.4;points=[[0.1818,0.06,0,0,0,0],[0.0,0.06,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0],[0.0,0.0,0,0,0,0]];" parent="1" vertex="1">
-                    <mxGeometry x="775" y="493.75" width="275" height="437.5" as="geometry"/>
+                <mxCell id="1876705188832" value="&#10;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px; text-align:left;&quot;&gt;&#10;  &lt;div style=&quot;background:#15803D; color:#FFFFFF; padding:2px 6px; border-radius:3px; font-size:10px; font-weight:700; display:inline-block;&quot;&gt;ARDUINO&lt;/div&gt;&#10;  &lt;div style=&quot;font-size:13px; font-weight:700; margin-top:4px;&quot;&gt;Geiger Tube J305β&lt;/div&gt;&#10;  &lt;div style=&quot;font-size:10px; opacity:0.8;&quot;&gt;Geiger Tube J305β&lt;/div&gt;&#10;  &#10;  &lt;hr style=&quot;border:0; border-top:1px solid rgba(0,0,0,0.15); margin:4px 0;&quot;/&gt;&#10;  &lt;div style=&quot;font-size:10px;&quot;&gt;&#10;    &lt;b&gt;Pins (2):&lt;/b&gt;&#10;    T16, T17&#10;  &lt;/div&gt;&#10;  &#10;&lt;/div&gt;&#10;" style="whiteSpace=wrap;rounded=1;fillColor=#DCFCE7;strokeColor=#15803D;dashed=0;html=1;align=left;verticalAlign=top;spacing=8;fontColor=#052E16;strokeWidth=1.6;" vertex="1" parent="1">
+                    <mxGeometry x="40.0" y="512.0" width="230.0" height="96.0" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844087021856" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.0;entryY=0.0;entryDx=0;entryDy=0;exitX=0.6731;exitY=0.1167;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087020848" target="1844087021520" edge="1">
+                <mxCell id="1876705189168" value="&#10;&lt;div style=&quot;font-family:Segoe UI, Arial, sans-serif; font-size:11px; text-align:left;&quot;&gt;&#10;  &lt;div style=&quot;background:#15803D; color:#FFFFFF; padding:2px 6px; border-radius:3px; font-size:10px; font-weight:700; display:inline-block;&quot;&gt;ARDUINO&lt;/div&gt;&#10;  &lt;div style=&quot;font-size:13px; font-weight:700; margin-top:4px;&quot;&gt;Geiger Libelium&lt;/div&gt;&#10;  &lt;div style=&quot;font-size:10px; opacity:0.8;&quot;&gt;Geiger Libelium&lt;/div&gt;&#10;  &#10;  &lt;hr style=&quot;border:0; border-top:1px solid rgba(0,0,0,0.15); margin:4px 0;&quot;/&gt;&#10;  &lt;div style=&quot;font-size:10px;&quot;&gt;&#10;    &lt;b&gt;Pins (18):&lt;/b&gt;&#10;    T18, T19, T20, T21, T22, T23, +12 more&#10;  &lt;/div&gt;&#10;  &#10;&lt;/div&gt;&#10;" style="whiteSpace=wrap;rounded=1;fillColor=#DCFCE7;strokeColor=#15803D;dashed=0;html=1;align=left;verticalAlign=top;spacing=8;fontColor=#052E16;strokeWidth=1.6;" vertex="1" parent="1">
+                    <mxGeometry x="40.0" y="140.0" width="230.0" height="146.0" as="geometry"/>
+                </mxCell>
+                <mxCell id="1876705189504" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;startArrow=none;endArrow=none;strokeColor=#334155;" edge="1" parent="1" source="1876705189168" target="1876705188496" value="16 wires&#10;[T15↔T35, T34↔T14, T13↔T33, ...]">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="1844087022192" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.6346;entryY=0.1167;entryDx=0;entryDy=0;exitX=0.0;exitY=0.0;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087021520" target="1844087020848" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087022528" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.0;entryY=0.0;entryDx=0;entryDy=0;exitX=0.5962;exitY=0.1167;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087020848" target="1844087021520" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087022864" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.5577;entryY=0.1167;entryDx=0;entryDy=0;exitX=0.0;exitY=0.0;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087021520" target="1844087020848" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087023200" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.0;entryY=0.0;entryDx=0;entryDy=0;exitX=0.5192;exitY=0.1167;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087020848" target="1844087021520" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087023536" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.4808;entryY=0.1167;entryDx=0;entryDy=0;exitX=0.0;exitY=0.0;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087021520" target="1844087020848" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087023872" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.0;entryY=0.0;entryDx=0;entryDy=0;exitX=0.4423;exitY=0.1167;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087020848" target="1844087021520" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087024208" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.4038;entryY=0.1167;entryDx=0;entryDy=0;exitX=0.0;exitY=0.0;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087021520" target="1844087020848" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087024544" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.0;entryY=0.0;entryDx=0;entryDy=0;exitX=0.3654;exitY=0.1167;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087020848" target="1844087021520" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087024880" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.0;entryY=0.0;entryDx=0;entryDy=0;exitX=0.3269;exitY=0.1167;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087020848" target="1844087021520" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087025216" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.0;entryY=0.0;entryDx=0;entryDy=0;exitX=0.2885;exitY=0.1167;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087020848" target="1844087021520" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087025552" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.0;entryY=0.0;entryDx=0;entryDy=0;exitX=0.25;exitY=0.1167;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087020848" target="1844087021520" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087025888" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.1818;entryY=0.06;entryDx=0;entryDy=0;exitX=0.9757;exitY=0.5;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087021184" target="1844087021520" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087026224" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.0;entryY=0.06;entryDx=0;entryDy=0;exitX=0.0514;exitY=0.5;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087021184" target="1844087021520" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087026560" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.0;entryY=0.0;entryDx=0;entryDy=0;exitX=0.2115;exitY=0.1167;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087020848" target="1844087021520" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087026896" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.0;entryY=0.0;entryDx=0;entryDy=0;exitX=0.1731;exitY=0.1167;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087020848" target="1844087021520" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087027232" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.0;entryY=0.0;entryDx=0;entryDy=0;exitX=0.1346;exitY=0.1167;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087020848" target="1844087021520" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1844087027568" value="" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=0;jettySize=auto;entryX=0.0;entryY=0.0;entryDx=0;entryDy=0;exitX=0.0962;exitY=0.1167;exitDx=0;exitDy=0;startArrow=none;endArrow=none;strokeColor=#1E293B;" parent="1" source="1844087020848" target="1844087021520" edge="1">
+                <mxCell id="1876705189840" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;rounded=1;jettySize=auto;startArrow=none;endArrow=none;strokeColor=#334155;" edge="1" parent="1" source="1876705189168" target="1876705188832" value="2 wires&#10;[T17↔T18, T16↔T19]">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>
