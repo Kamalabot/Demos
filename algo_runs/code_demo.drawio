@@ -1,0 +1,235 @@
+<mxfile host="65bd71144e">
+    <diagram id="demo_py_diagram" name="Python-Code-Demo-Architecture">
+        <mxGraphModel dx="511" dy="483" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1420" pageHeight="1060" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="header_card" value="&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;PYTHON CONTROL FLOW &amp;amp; EXECUTION ARCHITECTURE: demo.py&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Functions • For &amp;amp; While Loops • If-Elif-Else Ladder • Exception Handling (try-except) • Runtime Memory State&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;align=center;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="20" width="1340" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="panel_main" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#E2E8F0;strokeWidth=1.5;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="95" width="460" height="935" as="geometry"/>
+                </mxCell>
+                <mxCell id="title_main" value="&lt;b&gt;MAIN CONTROL FLOW: main()&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Program Driver and Workflow Orchestrator&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="100" width="460" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="main_start" value="&lt;b&gt;START: main()&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Entry point (if __name__ == '__main__')&lt;/span&gt;" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#10B981;strokeWidth=1.5;align=center;fontColor=#1d0c0c;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="135" width="200" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="main_init" value="&lt;b&gt;1. Variable Initialization (Stack Frame)&lt;/b&gt;&lt;br&gt;&lt;code&gt;student_name = 'Arjun' (str)&lt;/code&gt;&lt;br&gt;&lt;code&gt;passing_mark = 40 (int)&lt;/code&gt;&lt;br&gt;&lt;code&gt;is_enrolled = True (bool)&lt;/code&gt;&lt;br&gt;&lt;code&gt;exam_scores = [85, 62, 35, 90] (list)&lt;/code&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#93C5FD;strokeWidth=1.2;align=left;spacingLeft=10;fontSize=10.5;fontColor=#121212;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="190" width="360" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="main_for_header" value="&lt;b&gt;2. For Loop: enumerate(exam_scores)&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Iterate: index, current_score (4 items)&lt;/span&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=15;whiteSpace=wrap;html=1;fillColor=#F3E8FF;strokeColor=#A855F7;strokeWidth=1.5;align=center;fontColor=#080808;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="290" width="340" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="main_grade_call" value="&lt;b&gt;Call: assign_grade(current_score)&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;grade = assign_grade(current_score)&lt;br&gt;print(f'Exam {index+1}: Score={current_score} | Grade={grade}')&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#3B82F6;strokeWidth=1.2;align=center;fontSize=10;fontColor=#080808;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="355" width="340" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="main_try_header" value="&lt;b&gt;3. Error Handling Block: try&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Guards calculation against empty sequence&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#6EE7B7;strokeWidth=1.2;align=center;fontColor=#080808;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="425" width="340" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="main_calc_avg" value="&lt;b&gt;Call: calculate_average(exam_scores)&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;avg = calculate_average(exam_scores) [returns 68.0]&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#3B82F6;strokeWidth=1.2;align=center;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="485" width="340" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="main_decision_pass" value="&lt;b&gt;avg &amp;gt;= passing_mark?&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;(68.0 &amp;gt;= 40)&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FEF9C3;strokeColor=#FACC15;strokeWidth=1.5;align=center;fontColor=#080808;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="550" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="main_pass_box" value="&lt;b&gt;Final Status: PASSED&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;avg &amp;gt;= 40 evaluated True&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#10B981;strokeWidth=1.2;align=center;fontColor=#080808;" parent="1" vertex="1">
+                    <mxGeometry x="75" y="630" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="main_fail_box" value="&lt;b&gt;Final Status: FAILED&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;avg &amp;lt; 40 evaluated False&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#EF4444;strokeWidth=1.2;align=center;fontColor=#080808;" parent="1" vertex="1">
+                    <mxGeometry x="305" y="630" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="main_except_box" value="&lt;b&gt;except ValueError as err:&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;logging.error(f'Calculation error: {err}')&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF1F2;strokeColor=#FB7185;strokeWidth=1.2;align=center;fontColor=#080808;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="690" width="340" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="main_while_init" value="&lt;b&gt;4. Countdown Loop Setup&lt;/b&gt;&lt;br&gt;&lt;code&gt;countdown = 3&lt;/code&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#93C5FD;strokeWidth=1.2;align=center;fontSize=10.5;fontColor=#080808;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="755" width="200" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="main_while_cond" value="&lt;b&gt;while countdown &amp;gt; 0?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FEF9C3;strokeColor=#FACC15;strokeWidth=1.5;align=center;fontColor=#080808;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="810" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="main_while_body" value="&lt;b&gt;While Loop Body&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;logging.info('Closing session in...')&lt;br&gt;countdown = countdown - 1&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#3B82F6;strokeWidth=1.2;align=center;fontColor=#080808;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="880" width="210" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="main_end" value="&lt;b&gt;END: print('Done.')&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Exit status code 0&lt;/span&gt;" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=#64748B;strokeWidth=1.5;align=center;fontColor=#080808;" parent="1" vertex="1">
+                    <mxGeometry x="310" y="882" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="main_start" target="main_init" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="main_init" target="main_for_header" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_3" value="Each item" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="main_for_header" target="main_grade_call" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_loopback" value="Next index" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;exitX=0;exitY=0.5;" parent="1" source="main_grade_call" target="main_for_header" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_4" value="Exhausted (4/4)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;;edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.5;exitX=1;exitY=0.5;" parent="1" source="main_for_header" target="main_try_header" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="main_try_header" target="main_calc_avg" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="main_calc_avg" target="main_decision_pass" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_7" value="True (&gt;=40)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="main_decision_pass" target="main_pass_box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_8" value="False (&lt;40)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="main_decision_pass" target="main_fail_box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_9" value="On ValueError" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;;strokeColor=#EF4444;strokeWidth=1.5;dashed=1;" parent="1" source="main_calc_avg" target="main_except_box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;;edgeStyle=orthogonalEdgeStyle;" parent="1" source="main_pass_box" target="main_while_init" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;;edgeStyle=orthogonalEdgeStyle;fontColor=#080808;" parent="1" source="main_fail_box" target="main_while_init" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="main_while_init" target="main_while_cond" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_13" value="True (&gt;0)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="main_while_cond" target="main_while_body" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_while_back" value="Decrement" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;exitX=0.5;exitY=0;" parent="1" source="main_while_body" target="main_while_cond" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_main_14" value="False (==0)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="main_while_cond" target="main_end" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="panel_sub1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#E2E8F0;strokeWidth=1.5;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="95" width="410" height="435" as="geometry"/>
+                </mxCell>
+                <mxCell id="title_sub1" value="&lt;b&gt;SUBROUTINE: assign_grade(score)&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Conditional Multi-Branch Decision Ladder&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#0A0A0A;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="100" width="410" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="sub1_start" value="&lt;b&gt;def assign_grade(score)&lt;/b&gt;" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#3B82F6;strokeWidth=1.5;align=center;fontColor=#0D0D0D;" parent="1" vertex="1">
+                    <mxGeometry x="625" y="135" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="sub1_log" value="&lt;code&gt;logging.info(f'Evaluating score: {score}')&lt;/code&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#94A3B8;strokeWidth=1;align=center;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="585" y="180" width="280" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="sub1_d80" value="&lt;b&gt;if score &amp;gt;= 80?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FEF9C3;strokeColor=#FACC15;strokeWidth=1.5;align=center;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="635" y="230" width="180" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="sub1_retA" value="&lt;b&gt;return 'A'&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#10B981;strokeWidth=1.5;align=center;fontColor=#065F46;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="235" width="75" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="sub1_d60" value="&lt;b&gt;elif score &amp;gt;= 60?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FEF9C3;strokeColor=#FACC15;strokeWidth=1.5;align=center;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="635" y="300" width="180" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="sub1_retB" value="&lt;b&gt;return 'B'&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#38BDF8;strokeWidth=1.5;align=center;fontColor=#0369A1;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="305" width="75" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="sub1_d40" value="&lt;b&gt;elif score &amp;gt;= 40?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FEF9C3;strokeColor=#FACC15;strokeWidth=1.5;align=center;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="635" y="370" width="180" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="sub1_retC" value="&lt;b&gt;return 'C'&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#F59E0B;strokeWidth=1.5;align=center;fontColor=#92400E;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="375" width="75" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="sub1_retFail" value="&lt;b&gt;else:&lt;br&gt;return 'Fail'&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#EF4444;strokeWidth=1.5;align=center;fontColor=#991B1B;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="445" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sub1_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="sub1_start" target="sub1_log" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sub1_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="sub1_log" target="sub1_d80" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sub1_3" value="True" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="sub1_d80" target="sub1_retA" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sub1_4" value="False" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="sub1_d80" target="sub1_d60" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sub1_5" value="True" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="sub1_d60" target="sub1_retB" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sub1_6" value="False" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="sub1_d60" target="sub1_d40" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sub1_7" value="True" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="sub1_d40" target="sub1_retC" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sub1_8" value="False" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="sub1_d40" target="sub1_retFail" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="panel_sub2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#E2E8F0;strokeWidth=1.5;" parent="1" vertex="1">
+                    <mxGeometry x="950" y="95" width="430" height="435" as="geometry"/>
+                </mxCell>
+                <mxCell id="title_sub2" value="&lt;b&gt;SUBROUTINE: calculate_average(scores)&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Validation, Accumulation Loop &amp;amp; Division&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#0A0A0A;" parent="1" vertex="1">
+                    <mxGeometry x="950" y="100" width="430" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="sub2_start" value="&lt;b&gt;def calculate_average(scores)&lt;/b&gt;" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#3B82F6;strokeWidth=1.5;align=center;fontColor=#0D0D0D;" parent="1" vertex="1">
+                    <mxGeometry x="1065" y="135" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="sub2_raise" value="&lt;b&gt;raise ValueError&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;'Score list cannot be empty.'&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#EF4444;strokeWidth=1.5;align=center;fontColor=#242424;" parent="1" vertex="1">
+                    <mxGeometry x="965" y="260" width="180" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="sub2_accum" value="&lt;b&gt;Loop: Accumulate Total&lt;/b&gt;&lt;br&gt;&lt;code&gt;total = 0&lt;/code&gt;&lt;br&gt;&lt;code&gt;for score in scores:&lt;/code&gt;&lt;br&gt;&lt;code&gt;    total = total + score&lt;/code&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#93C5FD;strokeWidth=1.2;align=left;spacingLeft=10;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="1170" y="255" width="195" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="sub2_div" value="&lt;b&gt;Compute Mean:&lt;/b&gt;&lt;br&gt;&lt;code&gt;average = total / len(scores)&lt;/code&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#94A3B8;strokeWidth=1.2;align=center;fontSize=10.5;fontColor=#242424;" parent="1" vertex="1">
+                    <mxGeometry x="1170" y="345" width="195" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="sub2_ret" value="&lt;b&gt;return average&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Float result (e.g. 68.0)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#10B981;strokeWidth=1.5;align=center;fontColor=#242424;" parent="1" vertex="1">
+                    <mxGeometry x="1170" y="415" width="195" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sub2_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="sub2_start" target="sub2_d_empty" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sub2_2" value="True (empty)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;;strokeColor=#EF4444;" parent="1" source="sub2_d_empty" target="sub2_raise" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sub2_3" value="False (valid)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="sub2_d_empty" target="sub2_accum" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sub2_4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="sub2_accum" target="sub2_div" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sub2_5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;" parent="1" source="sub2_div" target="sub2_ret" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_call_sub1" value="Invokes" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;;dashed=1;strokeColor=#2563EB;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;" parent="1" source="main_grade_call" target="sub1_start" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_call_sub2" value="Invokes" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;;dashed=1;strokeColor=#2563EB;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;startArrow=none;" parent="1" source="sub2_d_empty" target="sub2_start" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="panel_trace" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#E2E8F0;strokeWidth=1.5;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="545" width="860" height="485" as="geometry"/>
+                </mxCell>
+                <mxCell id="title_trace" value="&lt;b&gt;RUNTIME MEMORY STATE &amp;amp; CONCRETE EXECUTION TRACE (ARJUN'S RUN)&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Step-by-step variable evaluation, console outputs, and loop states&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#030303;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="550" width="860" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="trace_vars" value="&lt;b&gt;1. Global / main() Scope Memory&lt;/b&gt;&lt;br&gt;&lt;table border=&quot;1&quot; style=&quot;border-collapse:collapse;width:100%;font-size:9.5px;text-align:left;&quot;&gt;&lt;tbody&gt;&lt;tr style=&quot;background:#E2E8F0;&quot;&gt;&lt;th&gt;Identifier&lt;/th&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;student_name&lt;/code&gt;&lt;/td&gt;&lt;td&gt;str&lt;/td&gt;&lt;td&gt;'Arjun'&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;passing_mark&lt;/code&gt;&lt;/td&gt;&lt;td&gt;int&lt;/td&gt;&lt;td&gt;40&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;is_enrolled&lt;/code&gt;&lt;/td&gt;&lt;td&gt;bool&lt;/td&gt;&lt;td&gt;True&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;exam_scores&lt;/code&gt;&lt;/td&gt;&lt;td&gt;list&lt;/td&gt;&lt;td&gt;[85, 62, 35, 90]&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;avg&lt;/code&gt;&lt;/td&gt;&lt;td&gt;float&lt;/td&gt;&lt;td&gt;68.0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;code&gt;countdown&lt;/code&gt;&lt;/td&gt;&lt;td&gt;int&lt;/td&gt;&lt;td&gt;3 → 2 → 1 → 0&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;strokeWidth=1;align=left;spacingLeft=8;spacingRight=8;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="585" width="260" height="185" as="geometry"/>
+                </mxCell>
+                <mxCell id="trace_scores" value="&lt;b&gt;2. Grade Evaluation Trace: for index, current_score in enumerate(exam_scores)&lt;/b&gt;&lt;br&gt;&lt;table border=&quot;1&quot; style=&quot;border-collapse:collapse;width:100%;font-size:9.5px;text-align:center;&quot;&gt;&lt;tbody&gt;&lt;tr style=&quot;background:#E2E8F0;&quot;&gt;&lt;th&gt;Iter&lt;/th&gt;&lt;th&gt;index&lt;/th&gt;&lt;th&gt;score&lt;/th&gt;&lt;th&gt;Branch Evaluated&lt;/th&gt;&lt;th&gt;Return Grade&lt;/th&gt;&lt;th&gt;Console Output&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;#1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;85&lt;/td&gt;&lt;td&gt;&lt;code&gt;score &amp;gt;= 80&lt;/code&gt; (85 ≥ 80)&lt;/td&gt;&lt;td&gt;&lt;b style=&quot;&quot;&gt;'A'&lt;/b&gt;&lt;/td&gt;&lt;td&gt;Exam 1: Score = 85 | Grade = A&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;#2&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;62&lt;/td&gt;&lt;td&gt;&lt;code&gt;score &amp;gt;= 60&lt;/code&gt; (62 ≥ 60)&lt;/td&gt;&lt;td&gt;&lt;b style=&quot;&quot;&gt;'B'&lt;/b&gt;&lt;/td&gt;&lt;td&gt;Exam 2: Score = 62 | Grade = B&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;#3&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;35&lt;/td&gt;&lt;td&gt;&lt;code&gt;else&lt;/code&gt; (35 &amp;lt; 40)&lt;/td&gt;&lt;td&gt;&lt;b style=&quot;&quot;&gt;'Fail'&lt;/b&gt;&lt;/td&gt;&lt;td&gt;Exam 3: Score = 35 | Grade = Fail&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;#4&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;90&lt;/td&gt;&lt;td&gt;&lt;code&gt;score &amp;gt;= 80&lt;/code&gt; (90 ≥ 80)&lt;/td&gt;&lt;td&gt;&lt;b style=&quot;&quot;&gt;'A'&lt;/b&gt;&lt;/td&gt;&lt;td&gt;Exam 4: Score = 90 | Grade = A&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;strokeWidth=1;align=left;spacingLeft=8;spacingRight=8;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="585" width="545" height="185" as="geometry"/>
+                </mxCell>
+                <mxCell id="trace_calc" value="&lt;b&gt;3. calculate_average Execution Breakdown&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;• &lt;b&gt;Input list:&lt;/b&gt; &lt;code&gt;[85, 62, 35, 90]&lt;/code&gt; (len = 4, non-empty)&lt;br&gt;• &lt;b&gt;Accumulator steps:&lt;/b&gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;1) total = 0 + 85 = 85&lt;br&gt;&amp;nbsp;&amp;nbsp;2) total = 85 + 62 = 147&lt;br&gt;&amp;nbsp;&amp;nbsp;3) total = 147 + 35 = 182&lt;br&gt;&amp;nbsp;&amp;nbsp;4) total = 182 + 90 = 272&lt;br&gt;• &lt;b&gt;Mean Division:&lt;/b&gt; &lt;code&gt;average = 272 / 4 = 68.0&lt;/code&gt;&lt;br&gt;• &lt;b&gt;Threshold Test:&lt;/b&gt; &lt;code&gt;68.0 &amp;gt;= 40&lt;/code&gt; → &lt;b style=&quot;&quot;&gt;Final Status: PASSED&lt;/b&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;strokeWidth=1;align=left;spacingLeft=8;spacingRight=8;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="785" width="390" height="225" as="geometry"/>
+                </mxCell>
+                <mxCell id="trace_countdown" value="&lt;b&gt;4. Countdown Loop &amp;amp; Complete Console Output&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;• &lt;b&gt;While Loop State Transitions:&lt;/b&gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;countdown=3 &amp;gt; 0 → Log: &lt;i&gt;Closing session in 3...&lt;/i&gt; → countdown=2&lt;br&gt;&amp;nbsp;&amp;nbsp;countdown=2 &amp;gt; 0 → Log: &lt;i&gt;Closing session in 2...&lt;/i&gt; → countdown=1&lt;br&gt;&amp;nbsp;&amp;nbsp;countdown=1 &amp;gt; 0 → Log: &lt;i&gt;Closing session in 1...&lt;/i&gt; → countdown=0&lt;br&gt;&amp;nbsp;&amp;nbsp;countdown=0 &amp;gt; 0 is False → Loop Terminates.&lt;br&gt;• &lt;b&gt;Complete STDOUT Output:&lt;/b&gt;&lt;br&gt;&lt;pre style=&quot;margin:2px 0 0 0;font-size:9px;background:#F8FAFC;padding:4px;border:1px solid #E2E8F0;border-radius:4px;&quot;&gt;Student: Arjun&#10;Enrolled: True&#10;-------------------------&#10;Exam 1: Score = 85 | Grade = A&#10;Exam 2: Score = 62 | Grade = B&#10;Exam 3: Score = 35 | Grade = Fail&#10;Exam 4: Score = 90 | Grade = A&#10;-------------------------&#10;Average Score: 68.0&#10;Final Status: PASSED&#10;-------------------------&#10;Done.&lt;/pre&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;strokeWidth=1;align=left;spacingLeft=8;spacingRight=8;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="950" y="785" width="415" height="225" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;;dashed=1;strokeColor=#2563EB;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;endArrow=none;" edge="1" parent="1" source="main_calc_avg" target="sub2_d_empty">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="440" y="507.48275862068976" as="sourcePoint"/>
+                        <mxPoint x="1165.0344827586207" y="165" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="sub2_d_empty" value="&lt;b&gt;if not scores:&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 9.5px;&quot;&gt;len(scores) == 0?&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FEF9C3;strokeColor=#FACC15;strokeWidth=1.5;align=center;fontColor=#242424;" parent="1" vertex="1">
+                    <mxGeometry x="1072.5" y="185" width="185" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
