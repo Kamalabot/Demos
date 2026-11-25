@@ -1,0 +1,8 @@
+{# Jinja2 HTML label templates for QElectroTech Draw.io blocks #}
+{% macro block_label(inst, def_ir, mode) -%}
+{% if mode == 'stencil' -%}
+<b>{{ inst.label }}</b>
+{%- else -%}
+<b>{{ inst.label }}</b><br><span style="font-size:8.5px;color:#475569;">{{ def_ir.name if def_ir else inst.def_path.split('/')[-1] }}</span>{% if inst.terminals %}<br><span style="font-size:8px;color:#64748B;">Pins: {{ inst.terminals | length }}</span>{% endif %}
+{%- endif %}
+{%- endmacro %}

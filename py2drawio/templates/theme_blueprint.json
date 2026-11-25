@@ -1,0 +1,27 @@
+{
+  "name": "blueprint",
+  "page_bg": "#FFFFFF",
+  "header": "rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#CBD5E1;strokeWidth=1.5;align=center;fontColor=#0F172A;",
+  "panel": "rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#E2E8F0;strokeWidth=1.5;",
+  "panel_title": "text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#0F172A;",
+  "card": "rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;strokeWidth=1;align=left;spacingLeft=10;spacingRight=10;fontColor=#1E293B;",
+  "nodes": {
+    "start": "rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#10B981;strokeWidth=1.5;align=center;fontColor=#065F46;",
+    "end": "rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=#64748B;strokeWidth=1.5;align=center;fontColor=#1E293B;",
+    "process": "rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#93C5FD;strokeWidth=1.2;align=left;spacingLeft=10;spacingRight=8;fontColor=#1E3A8A;",
+    "decision": "rhombus;whiteSpace=wrap;html=1;fillColor=#FEF9C3;strokeColor=#FACC15;strokeWidth=1.5;align=center;fontColor=#713F12;",
+    "loop_for": "shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=15;whiteSpace=wrap;html=1;fillColor=#F3E8FF;strokeColor=#A855F7;strokeWidth=1.5;align=center;fontColor=#581C87;",
+    "call": "rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#3B82F6;strokeWidth=1.4;align=center;fontColor=#1E3A8A;",
+    "try_block": "rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#6EE7B7;strokeWidth=1.2;align=center;fontColor=#065F46;",
+    "except": "rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#EF4444;strokeWidth=1.4;align=center;fontColor=#991B1B;",
+    "return": "rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#10B981;strokeWidth=1.5;align=center;fontColor=#065F46;"
+  },
+  "edges": {
+    "normal": "edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#4B5563;fontSize=10;fontColor=#374151;",
+    "true": "edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#10B981;fontSize=10;fontColor=#047857;",
+    "false": "edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#F59E0B;fontSize=10;fontColor=#B45309;",
+    "loopback": "edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#9333EA;fontSize=10;fontColor=#6B21A8;exitX=0;exitY=0.5;entryX=0;entryY=0.5;",
+    "exception": "edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#EF4444;dashed=1;fontSize=10;fontColor=#B91C1C;",
+    "call_link": "edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#2563EB;dashed=1;fontSize=10;fontColor=#1D4ED8;"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "dark",
+  "page_bg": "#0F172A",
+  "header": "rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#334155;strokeWidth=1.5;align=center;fontColor=#F8FAFC;",
+  "panel": "rounded=1;whiteSpace=wrap;html=1;fillColor=#111827;strokeColor=#374151;strokeWidth=1.5;",
+  "panel_title": "text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#F1F5F9;",
+  "card": "rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;strokeWidth=1;align=left;spacingLeft=10;spacingRight=10;fontColor=#E2E8F0;",
+  "nodes": {
+    "start": "rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#064E3B;strokeColor=#10B981;strokeWidth=1.5;align=center;fontColor=#A7F3D0;",
+    "end": "rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#94A3B8;strokeWidth=1.5;align=center;fontColor=#F1F5F9;",
+    "process": "rounded=1;whiteSpace=wrap;html=1;fillColor=#1E3A8A;strokeColor=#60A5FA;strokeWidth=1.2;align=left;spacingLeft=10;spacingRight=8;fontColor=#DBEAFE;",
+    "decision": "rhombus;whiteSpace=wrap;html=1;fillColor=#713F12;strokeColor=#FACC15;strokeWidth=1.5;align=center;fontColor=#FEF9C3;",
+    "loop_for": "shape=hexagon;perimeter=hexagonPerimeter2;fixedSize=1;size=15;whiteSpace=wrap;html=1;fillColor=#581C87;strokeColor=#C084FC;strokeWidth=1.5;align=center;fontColor=#F3E8FF;",
+    "call": "rounded=1;whiteSpace=wrap;html=1;fillColor=#1D4ED8;strokeColor=#93C5FD;strokeWidth=1.4;align=center;fontColor=#EFF6FF;",
+    "try_block": "rounded=1;whiteSpace=wrap;html=1;fillColor=#065F46;strokeColor=#34D399;strokeWidth=1.2;align=center;fontColor=#D1FAE5;",
+    "except": "rounded=1;whiteSpace=wrap;html=1;fillColor=#7F1D1D;strokeColor=#F87171;strokeWidth=1.4;align=center;fontColor=#FEE2E2;",
+    "return": "rounded=1;whiteSpace=wrap;html=1;fillColor=#064E3B;strokeColor=#34D399;strokeWidth=1.5;align=center;fontColor=#D1FAE5;"
+  },
+  "edges": {
+    "normal": "edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#94A3B8;fontSize=10;fontColor=#CBD5E1;",
+    "true": "edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#34D399;fontSize=10;fontColor=#6EE7B7;",
+    "false": "edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#FBBF24;fontSize=10;fontColor=#FDE68A;",
+    "loopback": "edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#C084FC;fontSize=10;fontColor=#E9D5FF;exitX=0;exitY=0.5;entryX=0;entryY=0.5;",
+    "exception": "edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#F87171;dashed=1;fontSize=10;fontColor=#FCA5A5;",
+    "call_link": "edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1.5;strokeColor=#60A5FA;dashed=1;fontSize=10;fontColor=#93C5FD;"
+  }
+}

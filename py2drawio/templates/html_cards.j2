@@ -1,0 +1,30 @@
+{# Jinja2 HTML templates for Draw.io node & trace card labels #}
+{% macro node_label(title, code_snippet) -%}
+<b>{{ title }}</b>{% if code_snippet %}<br><span style="font-size:9.5px;"><code>{{ code_snippet | replace('\n', '<br>') }}</code></span>{% endif %}
+{%- endmacro %}
+
+{% macro memory_table(locals_snapshot) -%}
+<b>1. Entry Scope Memory Snapshot</b><br>
+<table border="1" style="border-collapse:collapse;width:100%;font-size:9.5px;text-align:left;">
+<tr><th>Identifier</th><th>Type</th><th>Value</th></tr>
+{% for name, typ, val in locals_snapshot %}
+<tr><td><code>{{ name }}</code></td><td>{{ typ }}</td><td>{{ val }}</td></tr>
+{% endfor %}
+</table>
+{%- endmacro %}
+
+{% macro call_trace_table(call_events) -%}
+<b>2. Subroutine Call Trace ({{ call_events | length }} invocations)</b><br>
+<table border="1" style="border-collapse:collapse;width:100%;font-size:9.5px;text-align:left;">
+<tr><th>#</th><th>Function</th><th>Arguments</th><th>Return</th></tr>
+{% for ev in call_events[:12] %}
+<tr><td>{{ loop.index }}</td><td><code>{{ ev.func_name }}</code></td><td><code>{{ ev.args_repr }}</code></td><td><code>{{ ev.return_repr }}</code></td></tr>
+{% endfor %}
+</table>
+{%- endmacro %}
+
+{% macro stdout_card(stdout_text, error_text) -%}
+<b>3. Captured STDOUT{% if error_text %} &amp; Error{% endif %}</b><br>
+<pre style="margin:4px 0 0 0;font-size:9px;padding:4px;">{{ stdout_text }}</pre>
+{% if error_text %}<br><b style="color:#EF4444;">Error:</b> <code>{{ error_text }}</code>{% endif %}
+{%- endmacro %}

@@ -1,0 +1,37 @@
+{
+  "name": "iec",
+  "annotation": "text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontColor=#1E293B;fontSize=10;",
+  "categories": {
+    "arduino": {
+      "fillColor": "#E0F2FE",
+      "strokeColor": "#0284C7",
+      "fontColor": "#0C4A6E"
+    },
+    "elektronika": {
+      "fillColor": "#FEF3C7",
+      "strokeColor": "#D97706",
+      "fontColor": "#78350F"
+    },
+    "power": {
+      "fillColor": "#FEE2E2",
+      "strokeColor": "#DC2626",
+      "fontColor": "#7F1D1D"
+    },
+    "coil": {
+      "fillColor": "#F3E8FF",
+      "strokeColor": "#9333EA",
+      "fontColor": "#581C87"
+    },
+    "protection": {
+      "fillColor": "#D1FAE5",
+      "strokeColor": "#059669",
+      "fontColor": "#064E3B"
+    },
+    "default": {
+      "fillColor": "#F8FAFC",
+      "strokeColor": "#475569",
+      "fontColor": "#0F172A"
+    }
+  },
+  "edge_default": "edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;strokeWidth=1.5;fontSize=9;"
+}
