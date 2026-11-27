@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+  =============================================================================
+  ANIME.JS v4.5.0 INTERACTIVE ACADEMY — PARALLEL EXHIBIT STUDIO (index.html)
+  =============================================================================
+  Upgraded Studio Architecture:
+  - Left Sidebar (#sidebar): 22 lessons grouped by Anime.js v4 modules, with
+    interactive Difficulty Tier Filters (Beginner, Intermediate, Advanced, Mastery).
+  - Center-Left Exhibit Stage (#stage): Live DOM / SVG / WebGL Three.js output.
+  - Center-Right Live Code Panel (#code-panel): Displayed in PARALLEL with the
+    animation! Automatically highlights the core working lines (`highlightLines`)
+    and provides a "Under the Hood / Mastery Insight" callout.
+  =============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anime.js v4.5 Interactive Academy — Beginner to Mastery</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="app-shell">
+    <!--
+      1. LEFT CURRICULUM SIDEBAR
+    -->
+    <aside id="sidebar" aria-label="Anime.js Curriculum">
+      <div class="sidebar-header">
+        <div class="brand-row">
+          <span class="logo-dot"></span>
+          <h1>Anime.js v4 Academy</h1>
+        </div>
+        <span class="version-pill">v4.5.0 • 22 Lessons • Three.js Adapter</span>
+
+        <!-- Skill Tier Filter Pills -->
+        <div class="level-filter" id="level-filter" role="group" aria-label="Filter by Difficulty">
+          <button class="lvl-pill active" data-level="All">All</button>
+          <button class="lvl-pill" data-level="Beginner">Beginner</button>
+          <button class="lvl-pill" data-level="Intermediate">Interm.</button>
+          <button class="lvl-pill" data-level="Advanced">Advanced</button>
+          <button class="lvl-pill" data-level="Mastery">Mastery</button>
+        </div>
+      </div>
+
+      <nav id="lesson-nav"></nav>
+    </aside>
+
+    <!--
+      2. MAIN WORKSPACE (THEORY + PARALLEL EXHIBIT & CODE SPLIT)
+    -->
+    <main id="workspace">
+      <header id="lesson-header">
+        <div class="header-meta">
+          <span id="lesson-module-badge" class="module-badge">MODULE</span>
+          <span id="lesson-level-badge" class="level-badge">Beginner</span>
+          <h2 id="lesson-title">Loading Lesson...</h2>
+        </div>
+
+        <div class="header-actions">
+          <button id="btn-toggle-layout" class="btn btn-outline" type="button" title="Toggle Split vs Full Stage">
+            ◫ Split View
+          </button>
+          <a
+            id="doc-link"
+            class="btn btn-outline"
+            href="https://animejs.com/documentation"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Official Docs ↗
+          </a>
+          <button id="btn-copy-code" class="btn btn-primary" type="button">
+            Copy Code
+          </button>
+          <button id="btn-replay" class="btn btn-accent" type="button">
+            ↻ Replay
+          </button>
+        </div>
+      </header>
+
+      <!-- Concept & Mastery Insight Strip -->
+      <section id="lesson-theory" aria-live="polite">
+        <p id="lesson-desc">Select a lesson from the sidebar to begin.</p>
+        <div id="mastery-callout" class="mastery-callout hidden">
+          <strong>Mastery Insight:</strong> <span id="mastery-text"></span>
+        </div>
+      </section>
+
+      <!--
+        3. PARALLEL SPLIT EXHIBIT + LIVE HIGHLIGHTED CODE PANEL
+      -->
+      <section id="exhibit-split" class="split-grid">
+        <!-- Left: Interactive Visual Stage -->
+        <div id="stage-wrapper">
+          <div class="pane-label">LIVE INTERACTIVE EXHIBIT</div>
+          <div id="stage"></div>
+        </div>
+
+        <!-- Right: Parallel Highlighted Source Code Panel -->
+        <aside id="code-panel" aria-label="Live Lesson Source Code">
+          <div class="code-panel-header">
+            <span id="code-filename" class="code-filename">lessons/01-timer-basics.js</span>
+            <span class="highlight-legend">
+              <span class="legend-swatch"></span> Highlighted = Core Mechanism
+            </span>
+          </div>
+          <div id="code-scroll" class="code-scroll">
+            <div id="code-lines" class="code-lines"></div>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

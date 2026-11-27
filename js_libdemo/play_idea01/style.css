@@ -1,0 +1,509 @@
+/*
+  =============================================================================
+  ANIME.JS v4 ACADEMY — PARALLEL STUDIO STYLESHEET (style.css)
+  =============================================================================
+*/
+
+:root {
+  --bg-app: #080a0f;
+  --bg-panel: #101521;
+  --bg-stage: #0c1019;
+  --bg-code: #0b0e14;
+  --border: rgba(148, 163, 184, 0.16);
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --accent: #ff4b4b;
+  --accent-soft: rgba(255, 75, 75, 0.15);
+  --cyan: #38bdf8;
+  --emerald: #34d399;
+  --amber: #fbbf24;
+  --violet: #a855f7;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-app);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow: hidden;
+}
+
+#app-shell {
+  display: grid;
+  grid-template-columns: 285px 1fr;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Sidebar */
+#sidebar {
+  background: var(--bg-panel);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  padding: 16px 14px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.logo-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.sidebar-header h1 {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.version-pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  color: var(--cyan);
+  background: rgba(56, 189, 248, 0.12);
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  margin-bottom: 10px;
+}
+
+/* Level Filter Pills */
+.level-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.lvl-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 3px 7px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.lvl-pill:hover {
+  color: #fff;
+}
+
+.lvl-pill.active {
+  background: var(--cyan);
+  color: #060910;
+  border-color: var(--cyan);
+}
+
+#lesson-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 10px 24px;
+}
+
+.nav-group-title {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin: 12px 6px 5px;
+}
+
+.nav-item {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #cbd5e1;
+  padding: 7px 8px;
+  border-radius: 8px;
+  font-size: 0.79rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.nav-item.active {
+  background: var(--accent-soft);
+  border-color: rgba(255, 75, 75, 0.45);
+  color: #fff;
+  font-weight: 600;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  overflow: hidden;
+}
+
+.nav-left span:last-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-num {
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: var(--accent);
+  min-width: 20px;
+}
+
+.nav-lvl-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-Beginner { background: var(--emerald); }
+.dot-Intermediate { background: var(--cyan); }
+.dot-Advanced { background: var(--amber); }
+.dot-Mastery { background: var(--violet); }
+
+/* Main Workspace */
+#workspace {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#lesson-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 18px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.module-badge {
+  font-family: monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid rgba(255, 75, 75, 0.35);
+}
+
+.level-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+.lvl-Beginner { background: rgba(52, 211, 153, 0.16); color: var(--emerald); border: 1px solid rgba(52, 211, 153, 0.35); }
+.lvl-Intermediate { background: rgba(56, 189, 248, 0.16); color: var(--cyan); border: 1px solid rgba(56, 189, 248, 0.35); }
+.lvl-Advanced { background: rgba(251, 191, 36, 0.16); color: var(--amber); border: 1px solid rgba(251, 191, 36, 0.35); }
+.lvl-Mastery { background: rgba(168, 85, 247, 0.16); color: var(--violet); border: 1px solid rgba(168, 85, 247, 0.35); }
+
+#lesson-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.header-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 7px;
+  font-size: 0.77rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  transition: all 0.15s ease;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #e2e8f0;
+}
+.btn-outline:hover { background: rgba(255, 255, 255, 0.08); }
+
+.btn-primary {
+  background: rgba(56, 189, 248, 0.16);
+  color: var(--cyan);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+.btn-primary:hover { background: rgba(56, 189, 248, 0.28); }
+
+.btn-accent {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.btn-accent:hover { filter: brightness(1.1); }
+
+#lesson-theory {
+  padding: 10px 18px;
+  background: rgba(16, 21, 33, 0.72);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.83rem;
+  line-height: 1.45;
+  color: #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mastery-callout {
+  font-size: 0.77rem;
+  color: #e2e8f0;
+  background: rgba(168, 85, 247, 0.1);
+  border-left: 3px solid var(--violet);
+  padding: 5px 10px;
+  border-radius: 0 6px 6px 0;
+}
+.mastery-callout.hidden { display: none; }
+
+/* Parallel Exhibit Split */
+.split-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.split-grid.stage-only {
+  grid-template-columns: 1fr 0px;
+}
+.split-grid.stage-only #code-panel {
+  display: none;
+}
+
+#stage-wrapper {
+  padding: 16px;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.06), transparent 60%),
+    var(--bg-stage);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pane-label {
+  font-family: monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+#stage {
+  flex: 1;
+  border: 1px dashed rgba(148, 163, 184, 0.22);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+/* Parallel Highlighted Code Panel */
+#code-panel {
+  background: var(--bg-code);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.code-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: #121722;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.74rem;
+}
+
+.code-filename {
+  font-family: monospace;
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.highlight-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--amber);
+  font-size: 0.7rem;
+}
+
+.legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: rgba(251, 191, 36, 0.28);
+  border-left: 2px solid var(--amber);
+}
+
+.code-scroll {
+  flex: 1;
+  overflow: auto;
+  padding: 10px 0;
+  font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.code-line {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  padding: 0 12px 0 6px;
+  white-space: pre;
+}
+
+.code-line.is-highlighted {
+  background: rgba(251, 191, 36, 0.11);
+  border-left: 3px solid var(--amber);
+  padding-left: 3px;
+}
+
+.line-num {
+  color: #475569;
+  text-align: right;
+  padding-right: 12px;
+  user-select: none;
+}
+
+.code-line.is-highlighted .line-num {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+.line-text {
+  color: #e2e8f0;
+}
+
+/* Lightweight syntax token colors */
+.tok-comment { color: #64748b; font-style: italic; }
+.tok-kw { color: #f472b6; }
+.tok-str { color: #86efac; }
+.tok-num { color: #fca5a5; }
+
+/* Reusable Stage Components */
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.demo-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.demo-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ff4b4b, #f97316);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.74rem;
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(255, 75, 75, 0.25);
+}
+
+.demo-pill {
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #1e293b;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  font-family: monospace;
+  font-size: 0.78rem;
+  color: var(--cyan);
+}
+
+.log-box {
+  font-family: monospace;
+  font-size: 0.75rem;
+  background: #06080d;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #34d399;
+  max-height: 150px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+.svg-dropzone {
+  border: 2px dashed rgba(56, 189, 248, 0.4);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  background: rgba(56, 189, 248, 0.05);
+  transition: all 0.2s ease;
+}
+
+.svg-dropzone.dragover {
+  border-color: var(--accent);
+  background: rgba(255, 75, 75, 0.12);
+  color: #fff;
+}
