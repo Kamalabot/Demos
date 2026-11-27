@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+  =============================================================================
+  UNDER THE HOOD OF FILES — X-RAY SCROLLYTELLING STUDIO (play_idea02/index.html)
+  =============================================================================
+  Core Teaching Thesis:
+    "All Tools Are Frontends. The File Is the Backend."
+    Whether you open Photoshop, Spotify, Excel, or QElectroTech, the app is
+    simply a Frontend window reading structured blocks inside a File!
+  =============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Anatomy X-Ray Studio — Interactive Scrollytelling</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- Continuous Anime.js v4 onScroll Progress Bar -->
+  <div id="scroll-progress-bar"></div>
+
+  <!-- Sticky Top Control Bar -->
+  <header id="studio-header">
+    <div class="brand">
+      <span class="brand-pulse"></span>
+      <div>
+        <h1>File Anatomy X-Ray Studio</h1>
+        <p class="subtitle">18 File Formats • File = Backend, App = Frontend</p>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <label class="btn btn-primary upload-btn" title="Upload any real file to dissect it live">
+        + Upload Real File
+        <input id="file-upload" type="file" hidden />
+      </label>
+
+      <div class="audience-toggle" role="group" aria-label="Explanation Mode">
+        <button class="aud-btn active" data-mode="kid" type="button">Kid Explorer</button>
+        <button class="aud-btn" data-mode="eng" type="button">Engineer Mode</button>
+      </div>
+
+      <button id="btn-prev-step" class="btn btn-outline" type="button" title="Previous Step (ArrowUp)">↑ Prev</button>
+      <button id="btn-next-step" class="btn btn-outline" type="button" title="Next Step (ArrowDown)">↓ Next</button>
+      <button id="btn-view-ast" class="btn btn-accent" type="button">&lt;/&gt; Inspect AST</button>
+    </div>
+  </header>
+
+  <!-- Grouped Format Selector Bar (18 Formats) -->
+  <nav id="format-tabs" aria-label="File Formats"></nav>
+
+  <!--
+    CORE OPENING NARRATIVE BANNER:
+    Teaches the fundamental secret before scrolling any single file.
+  -->
+  <section id="mental-model-banner" aria-label="How Files and Tools Work">
+    <div class="mm-story">
+      <span class="mm-kicker">THE BIG SECRET UNDER THE HOOD</span>
+      <h2>Every App Is Just a Frontend — <span class="hl">The File Is the Real Backend!</span></h2>
+      <p>
+        When you double-click a file, you aren't looking at "magic." The <strong>File on disk</strong> stores strict,
+        ordered blocks (tags, keys, or raw bytes). A <strong>Reader (Parser)</strong> walks those blocks from start to
+        finish and hands them to the <strong>App (Frontend)</strong> to draw a circuit, render pixels, or play sound!
+      </p>
+    </div>
+    <div class="mm-pipeline">
+      <div class="mm-node node-file">
+        <small>1. BACKEND (DISK)</small>
+        <strong>The File Blocks</strong>
+        <span>Bytes / XML / JSON</span>
+      </div>
+      <span class="mm-arrow">➔</span>
+      <div class="mm-node node-parser">
+        <small>2. TRANSLATOR</small>
+        <strong>File Reader</strong>
+        <span>fast-xml / DataView</span>
+      </div>
+      <span class="mm-arrow">➔</span>
+      <div class="mm-node node-app">
+        <small>3. FRONTEND (SCREEN)</small>
+        <strong>Tool Output</strong>
+        <span>Image / Audio / CAD</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Drag & Drop Status Strip -->
+  <div id="drop-banner" class="drop-banner">
+    Active File: <strong id="active-file-label">.qet (QElectroTech)</strong> — Scroll down on the right to trace how the Reader turns Backend blocks into Frontend output!
+  </div>
+
+  <!-- Main Two-Column Scrollytelling Workspace -->
+  <main id="scrolly-layout">
+    <!-- LEFT: Sticky Interactive SVG Stage + Raw X-Ray Strip -->
+    <section id="sticky-stage" aria-label="Interactive File Diagram">
+      <div class="stage-topbar">
+        <div>
+          <span id="format-badge" class="format-badge">XML SCHEMATIC</span>
+          <h2 id="format-title">QElectroTech Schematic (.qet)</h2>
+        </div>
+        <div class="zoom-controls">
+          <button id="btn-zoom-in" class="btn btn-sm" type="button" title="Zoom In">+</button>
+          <button id="btn-zoom-out" class="btn btn-sm" type="button" title="Zoom Out">−</button>
+          <button id="btn-zoom-reset" class="btn btn-sm" type="button" title="Reset Camera">Fit</button>
+          <button id="btn-wheel-toggle" class="btn btn-sm" type="button" title="Toggle Wheel Zoom">Wheel: Off</button>
+        </div>
+      </div>
+
+      <!-- Inline SVG Mount (Top = File Backend Layout, Bottom = Tool Frontend Output) -->
+      <div id="svg-stage"></div>
+
+      <!-- Synchronized Raw Token / Hex X-Ray Strip -->
+      <div class="xray-strip-wrap">
+        <div class="xray-label">RAW FILE BYTES / TAGS ON DISK (SYNCHRONIZED WITH ACTIVE STEP)</div>
+        <div id="xray-strip" class="xray-strip"></div>
+      </div>
+    </section>
+
+    <!-- RIGHT: Scrolling Narrative Explainer Cards (observed by Scrollama) -->
+    <section id="narrative-column" aria-label="Step-by-Step Story"></section>
+  </main>
+
+  <!-- AST / Raw Source Modal -->
+  <div id="ast-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <span class="format-badge">UNDER THE HOOD</span>
+          <h3 id="modal-title">Parsed AST &amp; Anatomy</h3>
+        </div>
+        <button id="btn-close-modal" class="btn btn-accent" type="button">✕ Close</button>
+      </div>
+      <pre id="modal-content" class="modal-pre"></pre>
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
