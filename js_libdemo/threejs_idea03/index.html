@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+  =============================================================================
+  THREE.JS + ANIME.JS + LIL-GUI — SPACE-TO-RUNWAY LANDER (index.html)
+  =============================================================================
+  Demonstrates:
+    - Procedural Day & Night Skyboxes + PMREM Environment IBL
+    - Separate, deliberate per-shape Launch (Push-Off) and Land (Re-Entry)
+    - 3D-projected floating Launch/Land pills hovering above each shape
+    - Live Webcam Selfie / Photo Upload mapped onto a 3D Runway Mannequin
+  =============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Three.js + Anime.js — Space Runway & Day/Night Skyboxes</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="three-canvas" aria-label="Space Runway 3D Viewport"></canvas>
+
+  <!-- 3D-Projected Floating Per-Shape Launch/Land Pills -->
+  <div id="shape-pills-layer" aria-label="Per-Shape Launch and Land Controls"></div>
+
+  <header id="hud">
+    <div class="hud-card">
+      <h1>Spaceport Runway</h1>
+      <span class="pill" id="sky-badge">NIGHT SKYBOX</span>
+    </div>
+    <div class="hud-actions">
+      <button id="btn-launch-all" class="btn btn-primary" type="button">🚀 Launch All</button>
+      <button id="btn-land-all" class="btn btn-emerald" type="button">🛬 Land All</button>
+      <button id="btn-toggle-sky" class="btn btn-outline" type="button">☀ Switch to Day</button>
+      <button id="btn-webcam" class="btn btn-outline" type="button">📷 Webcam Selfie</button>
+      <label class="btn btn-outline" style="cursor:pointer;">
+        🖼 Photo Texture
+        <input id="photo-upload" type="file" accept="image/*" hidden />
+      </label>
+    </div>
+  </header>
+
+  <aside id="hud-info" class="hud-card">
+    <p>
+      Use the floating <strong>🚀 Launch</strong> / <strong>🛬 Land</strong> buttons hovering above each shape
+      (or <strong>Launch All / Land All</strong>) for separate deliberate push-off and re-entry!
+    </p>
+  </aside>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
