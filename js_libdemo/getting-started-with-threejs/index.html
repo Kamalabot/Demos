@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+  =============================================================================
+  THREE.JS COMPREHENSIVE LEARNING PLAYGROUND — ENTRYPOINT (index.html)
+  =============================================================================
+  This HTML5 document serves as the frontend shell for our interactive Three.js
+  curriculum, covering Basic, Intermediate, Mastery, Fluency, Studio Glass,
+  and Advanced Kinetic Portfolio concepts.
+
+  HOW VITE SERVES THIS FILE:
+  - Vite treats this index.html as the application entry point.
+  - The <script type="module" src="./main.js"> tag enables native ES Modules
+    in the browser, allowing Vite to resolve bare imports like:
+      import * as THREE from 'three';
+      import GUI from 'lil-gui';
+      import gsap from 'gsap';
+  =============================================================================
+-->
+<html lang="en">
+<head>
+  <!-- Character encoding: UTF-8 ensures all symbols and math notations render cleanly -->
+  <meta charset="UTF-8" />
+
+  <!-- Responsive viewport: prevents mobile pinch-zooming from interfering with OrbitControls -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Three.js Mastery Playground — Basic to Portfolio</title>
+
+  <!-- External stylesheet for full-bleed WebGL canvas, HUD, and scroll overlay -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!--
+    1. WEBGL CANVAS MOUNT
+    Three.js's WebGLRenderer creates (or attaches to) an HTML <canvas> element.
+    By giving it an explicit ID (#three-canvas), we keep full control over
+    its CSS sizing, pointer-events, and accessibility attributes.
+  -->
+  <canvas id="three-canvas" aria-label="Interactive 3D Three.js Viewport"></canvas>
+
+  <!--
+    2. FLOATING HEADS-UP DISPLAY (HUD)
+    Positioned via CSS `position: fixed` above the WebGL canvas (higher z-index).
+    `pointer-events: none` on the wrapper lets mouse drags pass through to
+    OrbitControls, while `pointer-events: auto` on interactive buttons/selects
+    keeps the UI clickable.
+  -->
+  <header id="hud-header">
+    <div class="hud-brand">
+      <h1>Three.js Mastery</h1>
+      <span class="badge">r187+ • ES Modules</span>
+    </div>
+
+    <!--
+      Module Selector:
+      Allows instant hot-swapping between curriculum stages without reloading
+      the page. Each switch triggers proper GPU resource disposal (.dispose())
+      in main.js to prevent WebGL memory leaks.
+    -->
+    <nav class="module-nav" aria-label="Curriculum Modules">
+      <button class="mod-btn" data-module="01-basic">1. Basic</button>
+      <button class="mod-btn" data-module="02-intermediate">2. Intermediate</button>
+      <button class="mod-btn" data-module="03-mastery">3. Mastery</button>
+      <button class="mod-btn" data-module="04-fluency">4. Fluency</button>
+      <button class="mod-btn" data-module="05-advanced-portfolio">5. Studio Glass</button>
+      <button class="mod-btn active" data-module="06-kinetic-portfolio">6. Kinetic Portfolio</button>
+    </nav>
+  </header>
+
+  <!--
+    3. MODULE INFO CARD (Bottom-Left)
+    Dynamically updated by main.js whenever a new curriculum module loads.
+    Displays the active module's title, key Three.js concepts, and interaction hints.
+  -->
+  <aside id="module-info" aria-live="polite">
+    <h2 id="info-title">Loading Module...</h2>
+    <p id="info-desc">Initializing WebGLRenderer and Scene...</p>
+    <div id="info-hints" class="hints"></div>
+  </aside>
+
+  <!--
+    4. MAIN ES MODULE ENTRYPOINT
+    `type="module"` defers execution until the DOM is parsed and enables
+    top-level `import` / `export` syntax.
+  -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
