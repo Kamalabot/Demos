@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+  =============================================================================
+  THREE.JS + ANIME.JS + LIL-GUI — EXTENDED RUNWAY TAXI LANDER (ver1/index.html)
+  =============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Three.js + Anime.js — Extended Runway Taxi (Ver 1)</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="three-canvas" aria-label="Extended Space Runway 3D Viewport"></canvas>
+
+  <div id="shape-pills-layer" aria-label="Per-Shape Taxi, Launch and Land Controls"></div>
+
+  <header id="hud">
+    <div class="hud-card">
+      <h1>Spaceport Runway <small style="color:#38bdf8;font-size:0.72rem;">VER 1</small></h1>
+      <span class="pill" id="sky-badge">NIGHT SKYBOX</span>
+    </div>
+    <div class="hud-actions">
+      <button id="btn-launch-all" class="btn btn-primary" type="button">🚀 Taxi &amp; Launch All</button>
+      <button id="btn-land-all" class="btn btn-emerald" type="button">🛬 Land &amp; Taxi All</button>
+      <button id="btn-toggle-sky" class="btn btn-outline" type="button">☀ Switch to Day</button>
+      <button id="btn-webcam" class="btn btn-outline" type="button">📷 Webcam Selfie</button>
+      <label class="btn btn-outline" style="cursor:pointer;">
+        🖼 Photo Texture
+        <input id="photo-upload" type="file" accept="image/*" hidden />
+      </label>
+    </div>
+  </header>
+
+  <aside id="hud-info" class="hud-card">
+    <p>
+      Shapes stay parked at center, taxi forward on the extended runway before liftoff,
+      and touch down on the far end to taxi smoothly back to their stop!
+    </p>
+  </aside>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
