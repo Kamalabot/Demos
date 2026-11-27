@@ -3,3 +3,6 @@ jinja2
 tree-sitter
 tree-sitter-python
 lxml
+svgelements
+dearcygui
+imgui-bundle

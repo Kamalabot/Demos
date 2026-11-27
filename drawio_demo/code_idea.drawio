@@ -1,6 +1,6 @@
 <mxfile host="Electron" pages="3">
   <diagram name="Page-1" id="DWw5CK1-TkD-glo70rAh">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1271" dy="1639" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -240,6 +240,9 @@
         </mxCell>
         <mxCell id="fmge8mH6H7ece5eJCIkn-100" parent="1" style="shape=singleArrow;whiteSpace=wrap;html=1;arrowWidth=0.4;arrowSize=0.4;strokeColor=#6c8ebf;strokeWidth=3;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fillColor=#dae8fc;rotation=270;gradientColor=#7ea6e0;" value="" vertex="1">
           <mxGeometry height="40" width="110" x="205" y="364" as="geometry" />
+        </mxCell>
+        <mxCell id="PYKZX7Pdessm-jOOuSRb-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosizeText=1;fontSize=24;" value="Stack of 2 Cols" vertex="1">
+          <mxGeometry height="66" width="140" x="895" y="414" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
